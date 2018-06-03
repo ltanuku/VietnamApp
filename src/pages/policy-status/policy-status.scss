@@ -1,0 +1,61 @@
+page-policy-status {
+	.page-title {
+        color: #003946;
+		font-size: 18px;
+		font-weight: 700;
+		padding-top: 10px;
+		padding-left: 16px;
+		margin-left: 16px;
+		margin-top: 18px;
+		margin-bottom: 10px;
+		position: relative;
+		text-transform: uppercase;
+		z-index: 1;
+    }
+    .page-title:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+		width: 36px;
+        height: 36px;
+        background-color: #eaab00;
+        z-index: -1;
+    }
+	.statusTabs .tabbar{
+		background: transparent;
+		padding: 0 25px;
+		border: 0px !important;
+	}
+	.statusTabs .tabbar:after{
+		background-image: none !important;
+	}
+	.statusTabs .tab-button{
+		color:silver;
+	    font-size: 13px;
+		font-weight: 600;
+	}
+	.statusTabs .tab-button[aria-selected=true]{
+		color:#181818;
+	}
+	.statusTabs .tab-button-text{
+	    padding: 2px 7px;
+	}
+	.statusTabs .tab-button[aria-selected=true] .tab-button-text:after{
+	    content: "";
+		height: 7px;
+		background: #eaab00;
+		width: 100%;
+		position: absolute;
+		bottom: 1px;
+		left: 0;
+		top: 10px;
+		z-index: -1;
+	}
+	.statusTabs.tabs-ios .tab-button[aria-selected=true] .tab-button-text:after{
+		top: 22px;
+	}
+	.statusTabs.tabs-ios .tab-button{
+		margin: 0 auto;
+	}
+}

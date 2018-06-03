@@ -1,0 +1,47 @@
+
+<ion-header class="custom_header" *ngIf="sideMenu">
+ 	<ion-toolbar class="logo-account">
+	 	<button class="back-btn" ion-button icon-only (tap)="goBack()">
+		 	<ion-icon name="arrow-back"></ion-icon>
+	 	</button>
+		<div class="page-header-title">
+		 <img src="./assets/icon/headerLogo.svg"  />
+		</div>
+ 	</ion-toolbar>
+
+	<ion-toolbar class="bar-subheader">
+		<div *ngIf="sideMenu">
+			<div class="page-title">{{strings.policyStatusTitle}}</div>
+			<div class="page-subtitle">{{strings.claimSubTitle}}</div>
+		</div>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="pendingUnderWriting" padding no-bounce>
+
+	<ion-row>
+		<ion-card *ngFor="let result of results"  class="box box-contract box-contract-light-blue" (tap)="details(result.policyno)" >
+
+			<div [ngSwitch]="result.requirement">
+				<div class="title" *ngSwitchCase="'PENDING'" [ngStyle]="{'background-color': config.colorCodes.pendingUnderWritingColor }">{{strings.pending}}</div>
+				<div class="title" *ngSwitchCase="'SUPPLEMENTARY_INFORMATION'" [ngStyle]="{'background-color': config.colorCodes.supplementaryUnderWritingColor }">{{strings.supplemenatroy_info}}</div>
+				<div class="title" *ngSwitchCase="'MEDICAL_EXAMINATION'" [ngStyle]="{'background-color': config.colorCodes.medicalExamUnderWritingColor }">{{strings.medical_exam}}</div>
+				<div class="title" *ngSwitchCase="'ACCEPTANCE_LETTER'" [ngStyle]="{'background-color': config.colorCodes.acceptanceUnderWritingColor }">{{strings.acceptance_letter}}</div>
+			</div>
+			<ion-card-content>
+				<div>{{strings.insuranceBuyer}} <span>: {{result.holdername | nodata}}</span></div>
+				<div>{{strings.numOfContracts}} <span>: {{result.policyno | nodata}}</span></div>
+				<div>{{strings.premiumDueDate}} <span>: {{result.expiredDate | dateFormat | nodata}}</span></div>
+			</ion-card-content>
+		</ion-card>
+	</ion-row>
+	<ion-infinite-scroll (ionInfinite)="getMoreUnderwriting($event)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	<p class="licence bottom-licence" [ngStyle]="alignBottom" >{{strings.licence}}</p>
+</ion-content>
+<ion-footer *ngIf="sideMenu">
+	<ion-toolbar>
+		<footer-bar></footer-bar>
+	</ion-toolbar>
+</ion-footer>

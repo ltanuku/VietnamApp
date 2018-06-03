@@ -1,0 +1,20 @@
+<!-- <ion-header class="sort-modal">
+   <!--  <ion-navbar>
+        <ion-title>Sort<i class="fa fa-times-circle-o" aria-hidden="true" (click)="modalhide()"></i></ion-title>
+     </ion-navbar> 
+</ion-header>
+ <ion-content padding class="sort-modal-content">
+
+</ion-content> -->
+<div class="popupModal">
+	<div  class="crossBut">   <ion-icon name="close" (click)="close()"></ion-icon> </div>
+	<div class="popupContent">
+		<div class="popupTitleDiv">
+			<p class="popupTitle">{{title}}<p>
+		</div>
+		<div class="popupButDiv"> 
+			<button ion-button round class="popupBut" (click)="agree()">{{strings.yesBtn}}</button>
+			<button ion-button round class="popupBut" (click)="close()">{{strings.noBtn}}</button>
+		</div>
+	</div>
+</div>

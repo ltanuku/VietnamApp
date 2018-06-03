@@ -1,0 +1,87 @@
+<ion-menu side="left"  [content]="content" (ionClose)="menuClosed()" type="overlay">
+	<ion-header [ngStyle]="profilePic" >
+		<ion-grid>
+			<ion-row tappable class="profile" menuClose (click)="profile()">
+				<ion-col col-8><p>{{strings.profile}}</p></ion-col>
+				<ion-icon col-4 name="ios-arrow-round-forward"></ion-icon>
+			</ion-row>
+			<hr>
+		<!--  <ion-row class="headerOptions">
+			<!--	<!-- <ion-col tappable class="changePswd" menuClose>{{strings.changePswd}}</ion-col> 
+				<ion-col tappable class="logout" (click)="logout()"><span>{{strings.logout}}</span></ion-col>
+			
+			</ion-row>   -->
+			<ion-row class="logOutRow" >
+				 <ion-col tappable class="logout" (click)="logout()" ><img class="logOutImg" src="./assets/icon/logout.svg" /> <p class="logOutP">{{strings.logout}}</p></ion-col> 
+
+			</ion-row>
+		</ion-grid>
+	</ion-header>
+	<ion-content padding>
+		<div class="menuList">
+			<ion-row tappable menuClose (click)="home()">
+				<ion-col col-2><img src="./assets/icon/home.svg" /></ion-col>
+				<p col-10>{{strings.home}}</p>
+			</ion-row>
+
+			<ion-row tappable menuClose (click)="policySearch()" >
+				<ion-col col-2><img src="./assets/icon/search.svg" /></ion-col>
+				<p col-10>{{strings.search}}</p>
+			</ion-row>
+			<div class="upperDropdown">
+				<ion-row tappable (click)="underwriting()" menuClose>
+					<ion-col col-2><img src="./assets/icon/file.svg" /></ion-col>
+					<p col-10>{{strings.appraisalStatus}}</p>
+				</ion-row>
+					<!-- <ion-list [hidden]="!isSubSearch">
+						<ion-row (click)="searchResults('underwriting')" menuClose>
+							<p>{{strings.underwriting}}</p>
+						</ion-row>
+						<ion-row (click)="searchResults('supplementation')" menuClose>
+							<p>{{strings.supplementation}}</p>
+						</ion-row>
+						<ion-row (click)="searchResults('healthCheck')" menuClose>
+							<p>{{strings.healthCheck}}</p>
+						</ion-row>
+						<ion-row (click)="searchResults('acceptanceLetter')" menuClose>
+							<p>{{strings.acceptanceLetter}}</p>
+						</ion-row>
+					</ion-list> -->
+					<div class="m-menu-item m-dropdown">
+				<ion-row tappable (click)="premiumSearchTap();" >
+					<ion-col col-2><img src="./assets/icon/hdong.svg" /></ion-col>
+					<p col-10>{{strings.licenseIssued}}
+					<ion-icon item-right [ngClass]="{'show':isPremiumSearch == 'active'}" [name] = "ios-arrow-down-outline"></ion-icon></p>
+				</ion-row>
+					<ion-list [hidden]="!isPremiumSearch" [ngClass]="{'show':isPremiumSearch == 'active'}"   class="m-dropdown-item">
+						<ion-row tappable menuClose (click)="searchResults(strings.waitingForAck)">
+							<p>{{strings.waitingForAck}}</p>
+						</ion-row>
+						<ion-row tappable menuClose (click)="searchResults(strings.inGracePeriod)">
+							<p>{{strings.inGracePeriod}}</p>
+						</ion-row>
+						<ion-row tappable menuClose (click)="searchResults(strings.cancelGraceInPeriod)">
+							<p>{{strings.cancelGraceInPeriod}}</p>
+						</ion-row>
+						<ion-row tappable menuClose (click)="searchResults(strings.inPremiumPeriod)">
+							<p>{{strings.inPremiumPeriod}}</p>
+						</ion-row>
+						<ion-row tappable menuClose (click)="searchResults(strings.lapsed)">
+							<p>{{strings.lapsed}}</p>
+						</ion-row>						
+					</ion-list>	
+					</div>
+				<ion-row tappable (click)="searchResults(strings.insuranceFee)" menuClose>
+					<ion-col col-2><img src="./assets/icon/baohiem.svg" /></ion-col>
+					<p col-10>{{strings.insuranceFee}}</p>
+				</ion-row>			
+			</div>	
+			<ion-row menuClose>
+				<ion-col col-2><img src="./assets/icon/dksd.svg" /></ion-col>
+				<p col-10>{{strings.termsOfUse}}</p>
+			</ion-row>
+		</div>
+	</ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false">

@@ -1,0 +1,77 @@
+<ion-header>
+	<ion-navbar>
+		<ion-buttons left>
+			<div ion-button class="toggle-menu" menuToggle>
+				<img src="./assets/icon/sun-menu.svg" />
+			</div>
+		</ion-buttons>
+		<img src="./assets/icon/headerLogo.svg" />
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="home" no-bounce [ngClass]="noScroll ? 'hideScroll' : ''">
+
+		<ion-refresher (ionRefresh)="doRefresh($event)">
+				<ion-refresher-content pullingIcon="arrow-dropdown" refreshingSpinner="circles" ></ion-refresher-content>
+			  </ion-refresher>
+
+	<ion-card class="bannerImages"  *ngIf="!hasSlideLoad">
+		<img  src="./assets/icon/slide-01.jpg" >
+	</ion-card>
+	<ion-slides  #slides initialSlide=0 pager=true loop=true autoplay=2000 centeredSlides =true tappable (tap)="slideDetail()" *ngIf="hasSlideLoad"  >
+		<ion-slide *ngFor="let slide of slideData" >
+			<ion-card class="bannerImages">
+				<div class="banner-container">
+				<img [src]="domSanitizer.bypassSecurityTrustUrl(slide.imageDetail)" />
+				</div>
+			</ion-card>
+		</ion-slide>
+	</ion-slides>
+
+	<div class="dataHeading">{{strings.gridHeading}}</div>
+	<ion-grid>
+		<ion-row>
+			<ion-card ion-col (tap)="calendar()" >
+				<img src="./assets/icon/icon-01.svg" />
+				<div>{{strings.calendar}}</div>
+			</ion-card>
+			<ion-card ion-col (tap)="policyStatus()">
+				<img src="./assets/icon/icon-02.svg" />
+				<div>{{strings.conditionsOfContract}}</div>
+			</ion-card>
+			<ion-card ion-col (tap)="policySearch()">
+				<img src="./assets/icon/icon-03.svg" />
+				<div>{{strings.searchOfContarct}}</div>
+			</ion-card>
+		</ion-row>
+		<ion-row>
+			<ion-card ion-col (tap)="productionReport(0)">
+				<img src="./assets/icon/icon-04.svg" />
+				<div>{{strings.personalReport}}</div>
+			</ion-card>
+			<ion-card ion-col (tap)="productionReport(1)" [ngStyle]="teamPerformanceCss">
+				<img src="./assets/icon/icon-05.svg" />
+				<div>{{strings.groupReports}}</div>
+			</ion-card>
+			<ion-card ion-col (tap)="productionReport(2)" >
+				<img src="./assets/icon/icon-07.svg" />
+				<div>{{strings.mdrt}}</div>
+			</ion-card>
+		</ion-row>
+		<ion-row>
+			<ion-card ion-col (tap)="productionReport(3)" >
+				<img src="./assets/icon/icon-08.svg" />
+				<div>{{strings.sunElite}}</div>
+			</ion-card>
+			<ion-card ion-col (tap)="productionReport(4)" >
+				<img src="./assets/icon/icon-09.svg" />
+				<div>{{strings.yearReport}}</div>
+			</ion-card>
+			<ion-card ion-col (tap)="incomPage()">
+				<img src="./assets/icon/icon-10.svg" />
+				<div>{{strings.income}}</div>
+			</ion-card>
+		</ion-row>
+	</ion-grid>
+	<p class="licence bottom-licence" [ngStyle]="alignBottom" >{{strings.licence}}</p>
+</ion-content>

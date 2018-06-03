@@ -1,0 +1,109 @@
+page-login{
+	.login.content{
+		background-image: url('../assets/icon/bim.jpg');
+		background-size: 100% 100%;
+	}
+	.login .loginBtn{
+	    margin-top: 20px;
+		margin-bottom: 21px;
+		background: #eaab00;
+		color: #fff;
+		font-size: 13px;
+		font-weight: 700;
+		border-radius: 50px;
+		outline: none;
+		padding: 30px 40px;
+		text-transform: none;
+	    box-shadow: none;
+	}
+	.login .loginBtn.activated{
+		background-color: #eaab00;
+	}
+	.login .item{
+		border: 1px solid #181818;
+		border-radius: 30px;
+		margin: 10px 0;
+		height: 55px;
+		color: #82786f;
+		font-size: 13px;
+		background-color: transparent;
+	}
+	.login .item-block .item-inner{
+		border: none;
+		padding: 15px;
+	}
+	.login .item-block .item-inner .label{
+		position: absolute;
+		margin: 0;
+	}
+	.login .item-block .item-inner .input{
+		padding-left: 30px;
+	}
+	.login .forgotPswd-Link{
+		text-align: center;
+	}
+	.login ion-label{
+		overflow: visible;
+	}
+	.login ion-icon{
+		font-size: 1.8em;
+	}
+	.login .logoImg{
+		text-align: center;
+		margin: 40px auto;
+	}
+	@media screen and (max-width:767px){
+		.login .logoImg img{
+			width: 70%;
+		}
+	}
+	@media screen and (min-width:768px){
+		.login .logoImg img{
+			width: 50%;
+			margin-bottom: 50px;
+		}
+	}
+	.login.content{
+		background-color: #fff;
+	}
+	.login.content:before {
+		display: none;
+	}
+	.licence{
+	    margin-top: auto;
+		padding-bottom: 10px;
+		color: #fff;
+		font-size: 11px;
+		opacity: .6;
+	}
+	.pass-forget{
+		 text-align: center;
+	}
+	.pass-forget a {
+		font-size: 12px;
+		color: #181818;
+		opacity: .5;
+		text-decoration: none;
+	}
+	.searchFooter:before{
+		background-image: none;
+	}
+
+	.ion-ios-contact-outline:before{
+		content: url(../assets/icon/username.svg) no-repeat 50% !important;
+	}
+	ion-icon {
+		&[class*="appname-customicon"] {
+			mask-image: url('../assets/icon/username.svg');
+		}
+	}
+
+	/* To over come extra space when input field is focused */
+	 .content-md .scroll-content{
+		padding-bottom: 0px !important;
+	 }	 
+ 	.ios .scroll-content{
+ 		padding: 250px !important;
+ 	}
+
+}

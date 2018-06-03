@@ -1,0 +1,45 @@
+page-slide-list{
+	.slideListHeading{
+	    color: #003946;
+		font-size: 18px;
+		font-family: Montserrat,sans-serif;
+		font-weight: 700;
+		padding-top: 10px;
+		padding-left: 16px;
+		margin-left: 16px;
+		margin-bottom: 23px;
+		position: relative;
+		
+	}
+	.list-header{margin: 20px 15px;}
+	.slideListHeading:before{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 36px;
+		height: 36px;
+		background-color: #eaab00;
+		z-index: -1;
+	}
+	.cardRow-auto{margin:auto;}
+	
+	.list-item{padding:5px 0;}
+	.cardlist-content .card .card-content{
+		padding: 10px;
+	}
+	.row .col[col-7]{
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 5;
+		overflow: hidden;
+		height: 80px;
+	}
+	.row .col p{
+	    font-size: 12px;
+		font-weight: 300;
+		color: #181818 !important;
+		margin-bottom: 0;
+		line-height: 1.4;
+	}
+}

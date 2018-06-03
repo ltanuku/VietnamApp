@@ -1,0 +1,21 @@
+<!-- Generated template for the FooterBarComponent component -->
+<div class="row navFooter">
+	<ion-buttons col-4 left>
+		<div menuToggle>
+			<img src="./assets/icon/f-menu.svg" />
+			<p>{{strings.menuTxt}}</p>
+		</div>
+	</ion-buttons>
+	<ion-buttons col-4>
+		<div (tap)="policyStatus()">
+			<img src="./assets/icon/file.svg">
+			<p>{{strings.statusOfContract}}</p>
+		</div>
+	</ion-buttons>
+	<ion-buttons col-4>
+		<div (tap)="policySearch()">
+		<img src="./assets/icon/search.svg" />
+		<p>{{strings.contractSearch}}</p>
+		</div>
+	</ion-buttons>
+</div>

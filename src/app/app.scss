@@ -1,0 +1,531 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+/** Font Styles */
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(../assets/fonts/montserratRegular.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(../assets/fonts/montserratBold.woff2) format('woff2');
+  unicode-range: U+0102-0103, U+1EA0-1EF9, U+20AB;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(../assets/fonts/latinRegularExt.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Montserrat Regular'), local('Montserrat-Regular'), url(../assets/fonts/latinRegular.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(../assets/fonts/latinBoldExt.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Montserrat Bold'), local('Montserrat-Bold'), url(../assets/fonts/latinBold.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/** Common CSS for App */
+body, html, ion-app{
+	font-family: 'Montserrat', sans-serif !important;
+}
+.md ion-nav {
+  &.menu-content-open {
+    ion-content {
+      > .scroll-content {
+        overflow-y: hidden;
+      }
+    }
+  }
+}
+.ios ion-nav {
+  &.menu-content-open {
+    ion-content {
+      > .scroll-content {
+        overflow-y: hidden;
+      }
+    }
+  }
+}
+
+.ion-page .content{
+	background-color: #f5f5f5;
+    background-image: url(../assets/icon/bim-icon.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+}
+.hideScroll .scroll-content{
+  overflow: hidden;
+}
+
+/** Common Header CSS */
+.custom_header .logo-account.toolbar-ios{
+  padding: 0px;
+}
+.custom_header .logo-account.toolbar .toolbar-background{
+  background-color: #003946;
+}
+.custom_header .logo-account.toolbar .toolbar-content{
+  text-align: center;
+}
+.custom_header .logo-account.toolbar .back-btn{
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  float: left;
+  background-color:transparent;
+  margin: 0px;
+}
+.custom_header .logo-account.toolbar .back-btn .button-inner{
+	color: #fff;
+}
+.custom_header .logo-account.toolbar .page-header-title img{
+  margin-top: 3px;
+  margin-right: 25px;
+}
+
+.header .toolbar-md{
+  min-height: 50px;
+}
+.header .toolbar .button-inner .back-button-text{
+	display: none;
+}
+.header .back-button{
+	z-index: 99;
+}
+.header .toolbar .back-button-md{
+	margin: 0px;
+	padding: 0px;
+	min-width: 40px;
+}
+
+.bar-subheader .toolbar-content{
+	text-align: initial !important;
+}
+
+/** Common footer CSS */
+.footer .toolbar{
+  padding: 0px;
+  min-height: 0px;
+}
+.footer:before{
+  display: none;
+}
+.footer .toolbar .toolbar-background{
+   background-color: #003946
+}
+
+/** Licence text common CSS */
+.licence{
+	color: hsla(0,0%,40%,.5);
+	font-size: 11px;
+	font-family: Montserrat,sans-serif;
+  text-align: center;
+}
+.bottom-licence{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+.alignBottom{
+  position: relative;
+}
+
+/** Side Menu CSS */
+.menu-inner .header{
+	height: 217px !important;
+	background: url(../assets/icon/profilepic.jpg) no-repeat;
+	background-size: cover;
+	color: #fff;
+	text-align: center;
+	font-size: 15px;
+}
+.menu-inner .header .profile{
+	font-size: 14px;
+	font-weight: 600;
+}
+.menu-inner .header .profile [col-8]{
+	text-align: right;
+    padding: 5px 0;
+}
+.menu-inner .header .profile p{
+	margin: 0px;
+	padding: 5px 0;
+}
+.menu-inner .header .grid{
+	bottom: 0px;
+    position: absolute;
+	padding: 0px;
+}
+.menu-inner .header .grid .profile ion-icon{
+	font-size: 2.2em;
+	text-align: left;
+}
+.menu-inner .fixed-content, .menu-inner .scroll-content{
+	margin-top: 217px !important;
+	background-color: #003946;
+	padding: 0px !important;
+}
+.menu-inner .header .grid hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+	width: 100%;
+	height: 0px;
+}
+.menu-inner .header .grid .headerOptions{
+	padding: 0px 10px 10px 10px;
+	font-size: 12px;
+    font-weight: 300;
+}
+.menu-inner .header .grid .headerOptions .col{
+	padding-left: 25px;
+}
+.menu-inner .header .grid .headerOptions .logout:before {
+    content: "";
+    background: url(../assets/icon/logout.svg) no-repeat 50%;
+    width: 20px;
+    height: 25px;
+  /*   position: absolute;
+    top: 0px;
+    left: 93px; */
+}
+.menu-inner .header .grid .headerOptions .changePswd:before {
+    content: "";
+    background: url(../assets/icon/menu-password.svg) no-repeat 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 2px;
+    left: 12px;
+}
+.menu-inner .scroll-content .menuList{
+	padding: 20px 0;
+}
+.menu-inner .scroll-content .menuList .row{
+	margin: 5px 0;
+}
+.menu-inner .scroll-content .menuList .row p{
+	color: #fff;
+	font-size: 13px;
+	margin: 0px;
+	padding: 8px
+}
+.menu-inner .scroll-content .menuList .row .col[col-2]{
+	text-align: center;
+    padding-left: 25px;
+}
+.menu-inner .scroll-content .menuList .item .item-inner{
+	border: 0px;
+}
+/* .menu-inner .scroll-content .menuList .upperDropdown{
+	background: hsla(0,0%,100%,.05);
+} */
+.menu-inner .scroll-content .menuList .list{
+	background: hsla(0,0%,100%,.1);
+	margin-bottom:0px !important;
+	padding-left: 40px;
+}
+.menu-inner .scroll-content .menuList .row .icon{
+    color: #eaab00;
+    font-size: 1.2em;
+    margin-right: 15px;
+    float: right;
+    margin-top: 2px;
+}
+.m-menu-item {
+  position: relative;
+}
+.m-menu-item.m-dropdown {
+  //background: hsla(0,0%,100%,.05);
+  transition: all .3s ease;
+}
+.m-menu-item.m-dropdown ion-row{
+  position: relative;
+}
+.m-dropdown-item {
+  background: hsla(0,0%,100%,.1);
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  transition: all .3s ease;
+}
+.m-dropdown-item.show {
+  visibility: visible;
+  height: auto;
+  opacity: 1;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+}
+
+/** Agent Tree drop down styles */
+.card .card-content .agentListRow{
+	color: #003946;
+	font-size: 14px;
+	font-weight: 600;
+	margin-bottom: 12px;
+}
+.card .card-content .agentListRow .icon{
+	padding-left: 6px;
+	color: #eaab00;
+}
+.card .card-content .agentList{
+	color: #fff;
+	background-color: #003946;
+	margin-right: -20px;
+	margin-left: -20px;
+}
+.card .card-content .agentList ul{
+	list-style: none;
+	padding-left: 24px;
+	margin: 0px;
+}
+.card .card-content .agentList ul:first-child{
+	padding: 20px;
+}
+.card .card-content .agentList .row{
+	font-size: 13px;
+	border-bottom: 1px solid hsla(0,0%,100%,.2);
+}
+.card .card-content .agentList .activeAgent{
+	font-size: 14px;
+	font-weight: 600;
+	padding-top: 0;
+	color: #eaab00;
+}
+.card .agentList [col-1]{
+	max-width: 28px;
+}
+.dropDownAnimation {
+  position: relative;
+  transition: all .3s ease;
+}
+.dropDownAnimation ion-row{
+  position: relative;
+}
+.card .card-content .agentList {
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  transition: all .3s ease;
+}
+.card .card-content .agentList.show {
+  visibility: visible;
+  height: auto;
+  opacity: 1;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+}
+
+.item-input.input-has-focus .item-inner {
+  box-shadow: none !important;
+  border-bottom-color: rgba(255, 255, 255, 0) !important;
+}
+
+.item-md.item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner,
+ .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus) .item-inner {
+  border-bottom-color: rgba(255, 255, 255, 0) !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+
+}
+
+.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus):not(.item-input-has-focus) .item-inner{
+  border-bottom-color: rgba(255, 255, 255, 0) !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+
+}
+
+.list-md .item-input.item-input-has-focus:last-child, .list-md .item-input.input-has-focus:last-child{
+
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+
+}
+.list-md .item-input.ng-valid.item-input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child,
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):not(.item-input-has-focus):last-child{
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+
+.button-md:hover:not(.disable-hover){background: #eaab00;}
+
+.bar-subheader .toolbar-background{
+  background-color: #f5f5f5;
+    border: 0px;
+}
+
+.header:after{
+  display: none;
+}
+
+.loading-content {
+  font-weight: bold;
+}
+
+.menu-inner .scroll-content .menuList .row .icon:before {
+  content: "\f3d8";
+  color: rgb(234, 171, 0);
+  position: absolute;
+  right: 20px;
+  top: 13px;
+  transform: rotate(180deg);
+  transition: all 0.3s ease;
+}
+.menu-inner .scroll-content .menuList .row .icon.show:before {
+  transform: rotate(360deg);position: absolute;
+}
+
+/** css for custom loader */
+.loading-wrapper{
+	background: transparent !important;
+	-webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+.loader {
+    z-index: 1038;
+}
+.loader .dot {
+    width: 24px;
+    height: 24px;
+    background: #eaab00;
+    border-radius: 100%;
+    display: inline-block !important;
+    -webkit-animation: a 1s infinite;
+    animation: a 1s infinite;
+	margin-right:3px;
+}
+
+.loader .dot:first-child {
+    -webkit-animation-delay: .1s;
+    animation-delay: .1s;
+    background: orange(#eaab00, 50)
+}
+
+.loader .dot:nth-child(2) {
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s;
+    background: orange(#eaab00, 100)
+}
+
+.loader .dot:nth-child(3) {
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
+    background: orange(#eaab00, 150)
+}
+
+.loader .dot:nth-child(4) {
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s;
+    background: orange(#eaab00, 200)
+}
+
+.loader .dot:nth-child(5) {
+    -webkit-animation-delay: .5s;
+    animation-delay: .5s;
+    background: orange(#eaab00, 250)
+}
+@-webkit-keyframes a {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+    50% {
+        opacity: .3;
+        -webkit-transform: scale(2);
+        transform: scale(2)
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+
+@keyframes a {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+    50% {
+        opacity: .3;
+        -webkit-transform: scale(2);
+        transform: scale(2)
+    }
+    to {
+        -webkit-transform: scale(1);
+        transform: scale(1)
+    }
+}
+.logOutP{    
+	display: inline-block;
+    margin: 0px;
+    margin-left: 5px;
+}
+.logOutImg{vertical-align: bottom;}
+.logOutRow{margin: 2px auto 10px;}
+/** end of css for custom loader */
+
+/** popup modal*/
+.modal-wrapper {
+    z-index: 10;
+    height:auto;
+    contain: strict;
+    left: 0;
+    top: 30%;
+    position: relative;
+    width: 80%;
+    min-height: 200px;
+    margin: 0 auto;
+}
+ion-modal ion-backdrop {
+    visibility: visible;
+}
+.popupContent{background:white;padding:20px}
+.popupBut{background-color: #003946}
+.crossBut{text-align:right;color:#eaab00;font-size:x-large;padding-right:8px;}
+.popupTitle{font-weight: 600; color: #003946;}
+.popupModal{}
+.popupTitleDiv{text-align:center;padding-bottom:15px;}
+.popupButDiv{text-align:center;}
+	@media screen and (min-width:768px){
+		.modal-wrapper{top:40%}
+	}

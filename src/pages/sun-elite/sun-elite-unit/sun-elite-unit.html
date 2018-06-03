@@ -1,0 +1,88 @@
+<!--
+  Generated template for the CalendarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content class="sun-elite" no-bounce [ngClass]="noScroll ? 'hideScroll' : ''">
+    <div class="sun-eliteContainer">
+        <ion-card>
+            <ion-card-content>
+				<div class="primary-div"><span class="primary-heading">{{strings.time}} {{sunEliteVal.startDate}} - {{sunEliteVal.endDate}}</span></div>
+                <div class="secondary-div"><span class="secondry-heading">({{strings.today}} - {{sunEliteVal.activeDate}})</span></div>
+                <div class="dropDownAnimation">
+          			<ion-row class="agentListRow" (tap)="showAgentList()">
+          				<div class="drop-downDiv">{{selectedAgentLevel}}</div>
+          				<ion-icon item-right [ngClass]="{'show':isAgentList == 'active'}" [name] = "isAgentList == 'active' ? 'ios-arrow-up-outline':'ios-arrow-down-outline'"></ion-icon>
+          			</ion-row>
+
+          			<ion-list class="agentList" [hidden]="!isAgentList" [ngClass]="{'show':isAgentList == 'active'}">
+          				<ul>
+          					<ng-template #recursiveList let-agentsList>
+          						<li *ngFor="let item of agentsList">
+          							<ion-row [ngClass]=" item.agentCode == selectedID ? 'activeAgent' : ''"    (tap)="setAction(item,item.agentCode)">
+          								<ion-col col-1><img src="./assets/icon/user.svg" /></ion-col>
+          								<div col-11>{{item.agentLevel}} - {{item.agentCode}} - {{item.agentName}}</div>
+          							</ion-row>
+          							<ul *ngIf="item.agents.length > 0">
+          								<ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.agents }"></ng-container>
+          							</ul>
+          						</li>
+          					</ng-template>
+          					<ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: agentsList }"></ng-container>
+          				</ul>
+          			</ion-list>
+              </div>
+
+				<div class="div-margin title-margin">
+					<span class="text-bold large-text-size">{{strings.FYP}}</span>
+					<label class="small-text-size">{{strings.unitMillion}}</label>
+                </div>
+
+				<div class="progressContainer sunElite" [ngStyle]="dataSuccess">
+					<div class="progress">
+						<div #moveProgress class="progressBar" [ngStyle]="{'width': progressWidth + '%'}">{{progressWidth | decimal}}</div>
+						<div class="bar-step bar1" [ngStyle]="{'left': target1 + '%'}">
+                            <span class="label-txt" [ngClass]="((target1 < 50) || (target1 == 'Infinity') || (target1 == null)) ? 'left-text' : ''">{{sunEliteVal.tartgeT_1}}</span>
+                            <span class="label-percent" [ngClass]="((target1 < 50) || (target1 == 'Infinity') || (target1 == null)) ? 'left-text' : ''">{{sunEliteVal.targeT_AMOUNT_1 |number : fractionSize}}</span>
+                        </div>
+                        <div class="bar-step bar2" [ngStyle]="{'left': target2 + '%'}">
+                            <span class="label-txt" [ngClass]="((target2 < 50) || (target2 == 'Infinity') || (target2 == null)) ? 'left-text' : ''">{{sunEliteVal.targeT_2}}</span>
+                            <span class="label-percent"  [ngClass]="((target2 < 50) || (target2 == 'Infinity') || (target2 == null)) ? 'left-text' : ''">{{sunEliteVal.targeT_AMOUNT_2 |number : fractionSize}}</span>
+                        </div>
+                        <div class="bar-step bar3" [ngStyle]="{'left': target3 + '%'}">
+                            <span class="label-txt" [ngClass]="((target3 < 50) || (target3 == 'Infinity') || (target3 == null)) ? 'left-text' : ''">{{sunEliteVal.targeT_3}}</span>
+                            <span class="label-percent" [ngClass]="((target3 < 50) || (target3 == 'Infinity') || (target3 == null)) ? 'left-text' : ''">{{sunEliteVal.targeT_AMOUNT_3 |number : fractionSize}}</span>
+                        </div>
+					</div>
+				</div>
+
+                <div class="div-margin">
+                    <span class="medium-text-size">{{strings.achievment}}</span>
+                    <span class="text-color text-bold large-text-size">{{sunEliteVal.achievement | nodata : serviceCallCompleted }}</span>
+                </div>
+                <div class="div-margin">
+					<h4 class="text-bold">{{strings.profitHeading}}</h4>
+                </div>
+                <div class="div-margin">
+					<span class="small-text">{{strings.nextLvlFYP}}</span>
+                </div>
+                <div text-right class="div-margin">
+					<h2 class="text-bold text-color">{{sunEliteVal.reQ_MONTH_FYP |number : fractionSize| nodata : serviceCallCompleted }}</h2>
+                </div>
+                <div class="div-margin">
+					<span class="small-text">{{strings.profitTitle3Unit}}</span>
+                </div>
+                <div text-right>
+					<h2 class="text-bold text-color">{{sunEliteVal.reQ_AGENT |number : fractionSize| nodata : serviceCallCompleted }}</h2>
+                </div>
+                <div class="div-margin">
+                    <span class="medium-text-size">{{strings.currentRatio}}</span>
+                    <span class="text-color text-bold large-text-size">{{((sunEliteVal.persistency)*100) | decimal | nodata : serviceCallCompleted }}<span *ngIf="sunEliteVal.persistency != null">%</span></span>
+                </div>
+            </ion-card-content>
+        </ion-card>
+    </div>
+	<p class="licence bottom-licence" [ngStyle]="alignBottom" >{{strings.licence}}</p>
+</ion-content>

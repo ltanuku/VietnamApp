@@ -1,0 +1,123 @@
+page-passcode-reg,page-passcode-login, page-passcode{	
+	.passcodeLogoImg{
+		    text-align: center; 
+			margin: 16px auto;
+		
+	}
+	.passcode.content {
+	background-image: url(../assets/icon/bim.jpg);
+    background-size: 100% 100%;
+	}
+	.passcodeLogoImg img{
+		margin-bottom: 10px;
+	}
+	.passcodeLogoImg .security-title {
+		font-size: 18px;
+		font-weight: 600;
+		color: #003946;
+	}
+	.passcodeLogoImg ul.security-dots {
+		padding-left: 0;
+		list-style-type: none;
+		display: inline-block;
+		margin: 20px auto;
+		position: relative;
+	}
+	.passcodeLogoImg ul.security-dots li {
+		float: left;
+		width: 15px;
+		height: 15px;
+		margin-left: 7.5px;
+		margin-right: 7.5px;
+		background: #000;
+		opacity: .4;
+		border-radius: 100%;
+		border: 1px solid transparent;
+	}
+	.passcodeLogoImg  .row {
+		//margin-bottom: 30px;
+		margin-left: 10%;
+		margin-right: 10%;
+		margin-bottom: -25px;
+	}
+	.passcodeLogoImg .row [col-4] a {
+		border: 1px solid #817870;
+	    padding: 20px 25px 20px 25px;
+		display: -ms-flexbox;
+		display: flex;
+		height: 60px;
+		width: 60px;
+		-ms-flex-align: center;
+		align-items: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		border-radius: 50%;
+		font-size: 18px;
+		font-weight: 300;
+		margin:0 auto 40px auto;
+		color: #82786f;
+		background: rgba(234,171,0,.2);
+	}
+	.ILS_full {
+		background-color: #eaab00 !important;
+		opacity: .7 !important;
+		border: 1px solid green;
+	}
+	.passcodeLogoImg ul.security-dots span {
+		background: url(../assets/icon/close.svg) no-repeat 50%;
+		width: 23px;
+		height: 17px;
+		display: inline-block;
+		position: absolute;
+		top: -8px;
+		right: -42px;
+		padding: 15px;
+	}
+	.custom_header .toolbar-background{
+		background-color: transparent;
+	}
+	   .custom_header:after{
+		background-image: none;
+	 }
+	   .custom_header .toolbar .button-inner{
+		color: #000;
+	}
+	   .header-ios .toolbar-ios:last-child .toolbar-background-ios {
+		border-width: 0 0 0px;
+	}
+	@media screen and (min-width:768px){
+		.passcodeLogoImg img{
+			width: 15%;
+			
+		}
+		.passcodeLogoImg{position:absolute;
+			top:21%;width:100%}
+		.passcodeLogoImg ul.security-dots {
+			margin: 40px auto;
+		}
+		#wrapper{
+			width: 60%;
+			margin: 0 auto;
+		}
+	}
+	
+}
+
+.content_back{
+	background: none;
+	color: #181818;
+	top: 10px;
+	left: 10px;
+	box-shadow:none;
+	font-size: 20px;
+
+}
+.content_back.activated {
+	background-color: transparent !important;
+}
+page-passcode{	
+	.passcodeLogoImg{
+//		text-align: center; 
+//		margin: -30px auto;	
+	}
+}

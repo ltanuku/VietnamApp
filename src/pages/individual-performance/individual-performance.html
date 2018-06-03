@@ -1,0 +1,120 @@
+<!--
+  Generated template for the IndividualPerformancePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header class="custom_header">
+ 	<ion-toolbar class="logo-account">
+	 	<button class="back-btn" ion-button icon-only (tap)="goBack()">
+		 	<ion-icon name="arrow-back"></ion-icon>
+	 	</button>
+		<div class="page-header-title">
+		 	<img src="./assets/icon/headerLogo.svg"  />
+		</div>
+ 	</ion-toolbar>
+</ion-header>
+
+<ion-content padding no-bounce [ngClass]="noScroll ? 'hideScroll' : ''">
+	<div class="page-title">{{strings.personalReport}}</div>
+
+	<ion-card>
+		<ion-card-content class="titleInfo">
+			<div class="subtitle">
+				<div>{{strings.resultOfPersonal}}</div>
+				<span>{{strings.day}} {{individualData.activeDate | date:'short' | dateFormat}}</span>
+			</div>
+			<div class="title">
+				<div>{{strings.totalInsuranceCost}}</div>
+				<span>{{strings.unitMillion}}</span>
+			</div>
+			<div class="dropDownAnimation">
+					<ion-row class="agentListRow" (tap)="showAgentList()">
+						<div class="drop-downDiv">{{selectedAgentLevel}}</div>
+						<ion-icon item-right [ngClass]="{'show':isAgentList == 'active'}" [name] = "isAgentList == 'active' ? 'ios-arrow-up-outline':'ios-arrow-down-outline'"></ion-icon>
+					</ion-row>
+
+					<ion-list class="agentList" [hidden]="!isAgentList" [ngClass]="{'show':isAgentList == 'active'}">
+						<ul>
+							<ng-template #recursiveList let-agentsList>
+								<li *ngFor="let item of agentsList">
+									<ion-row [ngClass]=" item.agentCode == selectedID ? 'activeAgent' : ''"    (tap)="setAction(item,item.agentCode)">
+										<ion-col col-1><img src="./assets/icon/user.svg" /></ion-col>
+										<div col-11>{{item.agentLevel}} - {{item.agentCode}} - {{item.agentName}}</div>
+									</ion-row>
+									<ul *ngIf="item.agents.length > 0">
+										<ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.agents }"></ng-container>
+									</ul>
+								</li>
+							</ng-template>
+							<ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: agentsList }"></ng-container>
+						</ul>
+					</ion-list>
+			</div>
+			<ion-row class="values">
+				<ion-col col-4>
+					<div>{{strings.reportInMonth}}</div>
+					<span>{{individualData.fyP_MTD |number : fractionSize| nodata : serviceCallCompleted }}</span>
+				</ion-col>
+				<ion-col col-4>
+					<div>{{strings.reportLastYear}}</div>
+					<span>{{individualData.fyP_YTD |number : fractionSize| nodata : serviceCallCompleted }}</span>
+				</ion-col>
+				<ion-col col-4>
+					<div>{{strings.reportInYear}}</div>
+					<span>{{individualData.fyp_YTM |number : fractionSize| nodata : serviceCallCompleted }}</span>
+				</ion-col>
+			</ion-row>
+
+			<canvas *ngIf="noGraphData" #barCanvas height="300px;"></canvas>
+			<hr *ngIf="noGraphData" col-8>
+
+
+			<div class="salesBox">
+				<div class="salesTitle">{{strings.personalIncome}}</div>
+				<ion-row class="rowTitles">
+					<ion-col col-3 class="colTitles" ></ion-col>
+					<ion-col col-3>{{strings.month}}</ion-col>
+					<ion-col col-3>{{strings.precious}}</ion-col>
+					<ion-col col-3>{{strings.year}}</ion-col>
+				</ion-row>
+				<ion-row class="salesData">
+					<ion-col col-3 class="colTitles" [innerHTML]="strings.individualColTitle1"></ion-col>
+					<ion-col col-3>{{individualData.ip_MTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+					<ion-col col-3>{{individualData.ip_QTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+					<ion-col col-3>{{individualData.ip_YTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+				</ion-row>
+				<ion-row class="salesData">
+					<ion-col col-3 class="colTitles" [innerHTML]="strings.individualColTitle2"></ion-col>
+					<ion-col col-3>{{individualData.case_issused_MTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+					<ion-col col-3>{{individualData.case_issused_QTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+					<ion-col col-3>{{individualData.case_issused_YTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+				</ion-row>
+				<ion-row class="salesData">
+					<ion-col col-3 class="colTitles" [innerHTML]="strings.individualColTitle3"></ion-col>
+         			<ion-col col-3>{{individualData.case_MTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+					<ion-col col-3>{{individualData.case_QTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+					<ion-col col-3>{{individualData.case_YTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+				</ion-row>
+				<ion-row class="salesData">
+					<ion-col col-3 class="colTitles" [innerHTML]="strings.individualColTitle4"></ion-col>
+          			<ion-col col-3>{{individualData.case_canceled_MTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+					<ion-col col-3>{{individualData.case_canceled_QTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+					<ion-col col-3>{{individualData.case_canceled_YTD |number : fractionSize| nodata : serviceCallCompleted }}</ion-col>
+				</ion-row>
+
+				<div class="ratio">
+					<span>{{strings.currentRatio}}</span>
+					<span class="ratioValue">{{((individualData.persistency)*100) | decimal | nodata : serviceCallCompleted}}<span *ngIf="individualData.persistency != null " >%</span></span>
+				</div>
+			</div>
+		</ion-card-content>
+	</ion-card>
+	<p class="licence bottom-licence"  [ngStyle]="alignBottom" >{{strings.licence}}</p>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<footer-bar></footer-bar>
+	</ion-toolbar>
+</ion-footer>

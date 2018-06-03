@@ -1,0 +1,116 @@
+<!--
+  Generated template for the SearchResultsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header class="custom_header">
+ 	<ion-toolbar class="logo-account">
+	 	<button class="back-btn" ion-button icon-only (tap)="goBack()">
+		 	<ion-icon name="arrow-back"></ion-icon>
+	 	</button>
+		<div class="page-header-title">
+		 	<img src="./assets/icon/headerLogo.svg"  />
+		</div>
+ 	</ion-toolbar>
+
+	<ion-toolbar class="bar-subheader">
+		<div *ngIf="!selectedPage.claimStatus">
+			<div class="page-title">{{strings.licenseIssued}}</div>
+			<div class="page-subtitle">{{previousPage}}</div>
+		</div>
+		<div *ngIf="selectedPage.claimStatus">
+			<div class="page-title">{{strings.claimTitle}}</div>
+			<div class="page-subtitle">{{strings.claimSubTitle}}</div>
+		</div>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding no-bounce>
+	
+	<!-- Waiting For Acknowledgement Screen -->
+	<ion-row *ngIf="selectedPage.waitingForAck">
+		<ion-card *ngFor="let result of results"  class="box box-contract box-contract-light-blue" (tap)="details(result.policyId)">
+			<div class="title" [ngStyle]="{'background-color': selectedPage.cardColor }">{{previousPage}}</div>			
+			<ion-card-content>
+				<div>{{strings.numOfContracts}} <span>: {{result.policyId | nodata}}</span></div>
+				<div>{{strings.insuranceBuyerPolicy}} <span>: {{result.policyOwner | nodata}}</span></div>
+				<div>{{strings.premiumDueDatePolicy}} <span>: {{result.endOfAckRequirmentDate | dateFormat}}</span></div>
+			</ion-card-content>
+		</ion-card>
+	</ion-row>
+
+	<!-- Policy in grace Period Screen -->
+	<ion-row *ngIf="selectedPage.inGracePeriod">
+		<ion-card *ngFor="let result of results"  class="box box-contract box-contract-light-blue" (tap)="details(result.policyId)">
+			<div class="title" [ngStyle]="{'background-color': selectedPage.cardColor }"><span class="hdText">{{strings.hd}} </span>{{previousPage}}</div>
+			<ion-card-content>
+				<div>{{strings.insuranceBuyer}} <span>: {{result.policyOwner | nodata}}</span></div>
+				<div>{{strings.numOfContracts}} <span>: {{result.policyId | nodata}}</span></div>
+				<div>{{strings.premiumDueDate}} <span>: {{result.issusedDate | dateFormat}}</span></div>
+			</ion-card-content>
+		</ion-card>
+	</ion-row>
+
+	<!-- Policy cancel in grace Period Screen -->
+	<ion-row *ngIf="selectedPage.cancelGracePeriod">
+		<ion-card *ngFor="let result of results"  class="box box-contract box-contract-light-blue" (tap)="details(result.policyId)">
+			<div class="title" [ngStyle]="{'background-color': selectedPage.cardColor }">{{strings.cancelPeriodCardTitle}}</div>
+			<ion-card-content>
+				<div>{{strings.insuranceBuyer}} <span>: {{result.policyOwner | nodata}}</span></div>
+				<div>{{strings.numOfContracts}} <span>: {{result.policyId | nodata}}</span></div>
+				<div>{{strings.premiumDueDate}} <span>: {{result.canceledDate | dateFormat}}</span></div>
+			</ion-card-content>
+		</ion-card>
+	</ion-row>
+
+	<!-- In premium paying period Screen -->
+	<ion-row *ngIf="selectedPage.inPremiumPeriod">
+		<ion-card *ngFor="let result of results"  class="box box-contract box-contract-light-blue" (tap)="details(result.policyID)">
+			<div class="title" [ngStyle]="{'background-color': selectedPage.cardColor }"><span class="hdText">{{strings.hd}} </span>{{previousPage}}</div>
+			<ion-card-content>
+				<div>{{strings.insuranceBuyer}}<span>: {{result.policyOwner | nodata}}</span></div>
+				<div>{{strings.numOfContracts}}<span>: {{result.policyID | nodata}}</span></div>
+				<div>{{strings.premiumDueDate}}<span>: {{result.premiumDueDate | dateFormat}}</span></div>
+			</ion-card-content>
+		</ion-card>
+	</ion-row>
+
+	<!-- Policy Lapsed Screen -->
+	<ion-row *ngIf="selectedPage.lapsed">
+		<ion-card *ngFor="let result of results"  class="box box-contract box-contract-light-blue" (tap)="details(result.policyID)">
+			<div class="title" [ngStyle]="{'background-color': selectedPage.cardColor }"><span class="hdText">{{strings.hd}} </span>{{previousPage}}</div>
+			<ion-card-content>
+				<div>{{strings.insuranceBuyer}} <span>: {{result.policyOwner | nodata}}</span></div>
+				<div>{{strings.numOfContracts}} <span>: {{result.policyID | nodata}}</span></div>
+				<div>{{strings.premiumDueDate}} <span>: {{result.lapseDate | dateFormat}}</span></div>
+			</ion-card-content>
+		</ion-card>
+	</ion-row>
+
+	<!-- Claim status Screen -->
+	<ion-row *ngIf="selectedPage.claimStatus">
+		<ion-card *ngFor="let result of results"  class="box box-contract box-contract-light-blue" (tap)="details(result.policyNo)">
+			<ion-card-content>
+				<div>{{strings.id}} <span>: {{result.id | nodata}}</span></div>
+				<div>{{strings.numOfContracts}} <span>: {{result.policyNo | nodata}}</span></div>
+				<div>{{strings.buyerBH}} <span>: {{result.agentCode | nodata}}</span></div>
+				<div>{{strings.request}} <span>:  {{result.agentName | nodata}}</span></div>
+				<div>{{strings.codeTVTC}} <span>: {{result.agentBrand | nodata}}</span></div>
+				<div>{{strings.nameOfTVTC}} <span>: {{result.claimNo | nodata}}</span></div>
+				<div>{{strings.agencyName}} <span>: {{result.claimType | nodata}}</span></div>
+				<div>{{strings.office}} <span>: {{result.claimStatus | nodata}}</span></div>
+			</ion-card-content>
+		</ion-card>
+	</ion-row>
+	<ion-infinite-scroll (ionInfinite)="getMorePolicyList($event)">
+		<ion-infinite-scroll-content></ion-infinite-scroll-content>
+	</ion-infinite-scroll>
+	<p class="licence bottom-licence" [ngStyle]="alignBottom" >{{strings.licence}}</p>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<footer-bar></footer-bar>
+	</ion-toolbar>
+</ion-footer>

@@ -1,0 +1,214 @@
+page-fullyear-report {
+	.fullYearTitle{
+	    margin-left: 15px;
+		color: #003946;
+		font-size: 18px;
+		font-weight: 700;
+		padding-top: 10px;
+		padding-left: 16px;
+		position: relative;
+		margin-top: 16px;
+		margin-bottom: 10px;
+		z-index: 1;
+	}
+	.fullYearTitle:before{
+		content: "";
+		background: #eaab00;
+		width: 38px;
+		height: 36px;
+		position: absolute;
+		top: 0px;
+		left: 0;
+		z-index: -1;
+	}
+	.card{
+		margin: 0;
+		width: 100%;
+		overflow: visible;
+	}
+	.yearCardTitle{
+		font-size: 18px;
+		font-weight: 600;
+		color: #eaab00;
+		margin-bottom: 3px;
+	}
+	.fullYearTime{
+		font-size: 12px;
+		font-weight: 300;
+		color: #82786f;
+		margin-bottom: 13px;
+	}
+	.progressbarTitle{
+		font-size: 12px;
+		font-weight: 300;
+		color: #82786f;
+		margin-bottom: 50px;
+		padding-top: 20px;
+	}
+	.progressbarTitle span{
+	    font-size: 20px;
+		font-weight: 600;
+		color: #181818;
+		margin-right: 6px;
+	}
+	
+	/** Progress Bar Styles */
+	.progressContainer.fullYear{
+		margin-bottom: 50px;
+		height: 260px;
+		position:relative;
+	}
+    .progress{
+		height: 30px;
+		background: silver;
+		border-radius: 0;
+		position:absolute;
+		width:100%;
+		top:45%;
+	}
+	.progress .progressBar{
+	    background: #eaab00;
+		height: 100%;
+		text-align: right;
+		padding-right: 10px;
+		padding-top: 5px;
+		font-size: 14px;
+	    color: #fff;
+		width:0px; 
+		-webkit-transition: width 0.5s, height 0.5s;
+		-moz-transition: width 0.5s, height 0.5s;
+		transition: width 0.5s, height 0.5s;
+		will-change: width;	
+	    position: relative;
+		max-width:100%;
+		z-index: 1;
+	}
+    .bar-step {
+        font-size:12px;
+		border-right: 1px solid #d0651e;
+   		position: absolute;
+   		z-index: 2;
+   		height: 35px;
+    	top: 0;
+    	bottom: 0;
+    	margin: auto;
+    }    
+    .label-txt {
+		position: absolute;
+		top: -20px;
+		right: -25px;
+		right: -15px;
+		display: block;
+		margin: 0 auto;
+		min-width: 80px;
+		text-align: right;
+        color:#d0651e;        
+    }    
+    .label-percent {
+		position: absolute;
+		bottom: -20px;
+		right: -15px;
+		display: block;
+		margin: 0 auto;
+		min-width: 50px;
+		text-align: right;
+		color: #d0651e;
+    }	  
+	.bar1 {height: 35px;}
+	.bar2 {height: 75px;}
+	.bar3 {height: 115px;}
+	.bar4 {height: 155px;}
+	.bar5 {height: 195px;}
+	.bar6 {height: 235px;}
+
+	.ticketInfo .ticketInfoTitle{
+	    color: #181818;
+		font-size: 14px;
+		font-weight: 600;
+		margin-bottom: 14px;
+	}
+	.ticketInfo .ticket, .remainingTime{
+	    color: #181818;
+		font-size: 12px;
+		font-weight: 300;
+		margin-bottom: 14px;
+	}
+	.ticketInfo .ticketNum{
+	    color: #eaab00;
+		font-size: 25px;
+		font-weight: 600;
+		text-align: right;
+		margin-bottom: 13px;
+	}
+	.row .progressTitle{
+	    color: #181818;
+		font-size: 12px;
+		font-weight: 300;
+	}
+	.subProgressContent{
+		margin: 16px 0 60px;
+	}
+	.monthValue{
+	    color: #eaab00;
+		font-size: 25px;
+		font-weight: 600;
+		text-align: right;
+		margin-bottom: 13px;
+	    text-transform: lowercase;
+	}
+	.leftContainer{left:5px;}
+	.progressWidth, .drop-downDiv{width:90%;}
+	.left-text{
+		text-align: left !important;
+		left: inherit;
+		right: inherit;
+	}
+	.medium-text-size{font-weight:bold;font-size:13px;}
+	.large-text-size{
+        font-size: 18px;
+    }
+	.text-color{
+        color: #eaab00;
+    }
+    .text-bold{
+        font-weight: bold;
+    }
+
+	/** Tabs Bar CSS */
+	.statusTabs .tabbar{
+		background: transparent;
+		padding: 0 25px;
+		border: 0px !important;
+	}
+	.statusTabs .tabbar:after{
+		background-image: none !important;
+	}
+	.statusTabs .tab-button{
+		color:silver;
+	    font-size: 13px;
+		font-weight: 600;
+	}
+	.statusTabs .tab-button[aria-selected=true]{
+		color:#181818;
+	}
+	.statusTabs .tab-button-text{
+	    padding: 2px 7px;
+	}
+	.statusTabs .tab-button[aria-selected=true] .tab-button-text:after{
+	    content: "";
+		height: 7px;
+		background: #eaab00;
+		width: 100%;
+		position: absolute;
+		bottom: 1px;
+		left: 0;
+		top: 10px;
+		z-index: -1;
+	}
+	.statusTabs.tabs-ios .tab-button[aria-selected=true] .tab-button-text:after{
+		top: 22px;
+	}
+	.statusTabs.tabs-ios .tab-button{
+		margin: 0 auto;
+	}
+}

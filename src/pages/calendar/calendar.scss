@@ -1,0 +1,280 @@
+.cal-month-view .cal-header {
+  text-align: center;
+  font-weight: bolder; }
+
+.cal-month-view .cal-header .cal-cell {
+  padding: 5px 0;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  display: block;
+  white-space: nowrap; }
+
+.cal-month-view .cal-cell .eventPresent:hover{
+  background-color: #ededed; 
+}
+
+.cal-month-view .cal-cell .eventSelected{
+  background-color: #dedede; 
+}
+
+
+.cal-month-view .cal-cell-top {
+	-webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+	position: relative;
+	text-align: center;
+    padding: 12px 0;
+}
+
+.cal-month-view .cal-cell-row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -js-display: flex;
+  display: flex; }
+
+.cal-month-view .cal-cell {
+  float: left;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -js-display: flex;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch; }
+
+.cal-month-view .cal-day-badge {
+  background-color: #b94a48;
+  padding: 2px 7px;
+  font-size: 12px;
+  line-height: 1;
+  color: white;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;  }
+
+.cal-month-view .cal-day-number {
+	font-size: 11px;
+    font-weight: 700;
+	color: #003845 !important;  }
+
+.cal-month-view .cal-day-cell.cal-in-month.cal-has-events {
+  cursor: pointer; }
+
+.cal-month-view .cal-day-cell.cal-out-month .cal-day-number {
+  opacity: 0.1;
+  cursor: default; }
+
+.cal-month-view .cal-day-cell.cal-weekend .cal-day-number {
+  color: darkred; }
+
+.cal-month-view .cal-day-cell.cal-today {
+  background-color: transparent !important;
+}
+
+.cal-month-view .cal-day-cell.cal-today .cal-day-number {
+	color: #fff !important;
+    background-color: #eaaa01 !important;
+    padding: 10px 12px;
+    border-radius: 50%;
+}
+
+.cal-month-view .cal-day-cell.cal-drag-over {
+  background-color: #e0e0e0 !important; }
+
+.cal-month-view .cal-open-day-events {
+	padding: 15px;
+	color: white;
+	background-color: #555;
+	-webkit-box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 15px 0 rgba(0, 0, 0, 0.5);
+}
+
+.cal-month-view .cal-open-day-events .cal-event {
+  position: relative;
+  top: 2px; }
+
+.cal-month-view .cal-out-month .cal-day-badge,
+.cal-month-view .cal-out-month .cal-event {
+  opacity: 0.3; }
+
+/** Custom Calendar Styles */
+.calendar [col-7], .calendar [col-4]{
+	padding: 0px;
+}
+.calendar [col-7] h3{
+	padding-right: 10px;
+}
+.calendar .datetime{
+	height: 30px;
+}
+.calendar .calTitle{
+	padding: 16px 0;
+}
+.calendar .monthYear{
+	text-align: right;
+}
+.calendar h3, .calendar h3 .icon{
+	line-height: 1.5;
+	margin: 0;
+  margin-top: -20px !important;
+	font-size: 14px;
+	font-weight: 700;
+}
+.calendar h3 .icon{
+	margin-left: 5px;
+	color: #eaab00;
+}
+.calendar select{
+	opacity: 0;
+}
+.calendar .row .nextMonth{
+	text-align: right;
+}
+.calendar .item-cover{
+	height: auto;
+}
+.calendar .calendarHeading{
+	color: #003946;
+    font-size: 18px;
+    font-weight: 700;
+    padding-top: 10px;
+    padding-left: 16px;
+    margin-left: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    position: relative;
+    text-transform: uppercase;
+}
+.calendar .calendarHeading:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 36px;
+	height: 36px;
+	background-color: #eaab00;
+	z-index: -1;
+}
+.cal-cell-row.cal-header{
+	pointer-events: none;
+}
+.calendar .calEvents .icon{
+	padding: 0px;
+    font-size: 30px;
+	color: #eaab00;
+}
+.calendar .calTitle span{
+    padding: 2.5px;
+    background-color: #003946;
+    display: block;
+    opacity: 1;
+    position: absolute;
+    content: " ";
+}
+.calendar ion-scroll .scroll-content{
+  padding: 8px !important;
+}
+.cal-event-title {
+    color: #003946;
+    font-size: 12px;
+    font-weight: 600;
+}
+.cal-event-title .eventName{
+    color: #003946;
+    font-weight: 600;  
+    font-size: 12px;
+    margin: 0;
+}
+.cal-event-title .eventDiscription{
+  font-weight: 300; 
+  color: #82786f;  
+  font-size: 12px;
+  margin: 0;
+}
+.birthday{
+	background-image: url('../assets/icon/birthday.svg') !important;
+	background-repeat: no-repeat;
+	background-position-x: 50%;
+  background-position-y: 50%;
+	width: 32px;
+}
+.policyAnniversy{
+	background-image: url('../assets/icon/policy.svg') !important;
+	background-repeat: no-repeat;
+	background-position-x: 50%;
+  background-position-y: 50%;
+	width: 32px;
+}
+.card{
+  margin: 10px 0;
+  width: 100%;
+}
+@media screen and (min-width: 415px){
+	.calTitle{
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 70%;
+		-ms-flex: 0 0 70%;
+		flex: 0 0 70%;
+		width: 70%;
+		max-width: 70%;
+	}
+	.calTitle [col-5]{
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 66%;
+		-ms-flex: 0 0 66%;
+		flex: 0 0 66%;
+		width: 66%;
+		max-width: 66%;
+	}
+	.monthYear{
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 30%;
+		-ms-flex: 0 0 30%;
+		flex: 0 0 30%;
+		width: 30%;
+		max-width: 30%;
+	}
+}
+@media screen and (min-width: 700px){
+	.cal-month-view .cal-day-number{
+		font-size: 15px;
+	}
+}
+@media screen and (max-width: 415px){
+  .cal-month-view .cal-day-badge{
+    right: 0px;
+  }
+}
+@media screen and (min-width:416px) and (max-width: 600px){
+  .cal-month-view .cal-day-badge{
+    right: 10px;
+  }
+}
+@media screen and (min-width: 601px) and (max-width: 900px){
+  .cal-month-view .cal-day-badge{
+    right: 20px;
+  }
+}
+@media screen and (min-width: 901px){
+  .cal-month-view .cal-day-badge{
+    right: 40px;
+  }
+}
+ion-spinner.calEventsSpinner{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    margin-top: 50px;
+}
+ion-spinner.calEventsSpinner svg{
+  margin: 0 auto;
+}

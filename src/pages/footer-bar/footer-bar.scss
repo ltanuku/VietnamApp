@@ -1,0 +1,19 @@
+.footer .navFooter ion-buttons{
+	margin: 0px;
+}
+.navFooter{
+	background: #003946;
+	color: #fff;
+}
+.navFooter:before{
+	background-image: none;
+}
+.navFooter [col-4]{
+	text-align: center;
+	font-size: 11px;
+	padding: 6px 0;
+}
+.navFooter [col-4] p{
+	margin: 0px;
+}
+

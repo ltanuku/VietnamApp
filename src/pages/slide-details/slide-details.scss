@@ -1,0 +1,76 @@
+page-slide-details{
+	.slideDetails .card .card-content p{
+		margin: 10px 0;
+		font-size: 14px;
+		color: #1d1d26 !important;
+	}
+	.slideDetails .card{
+		margin: 15px;
+		width: auto;
+	}
+	.slideDetails .card .card-content .icon{
+		margin-right: 5px;
+	}
+	.slideDetails .note{
+		border-left: 2px solid #eaab00;
+	}
+	.slideDetails .card .card-content .note p, .slideDetails .card .card-content .note span{
+		margin-left: 25px;	
+		color: #eaab00 !important;
+	}
+	.slideTitle{
+		margin: 20px 15px 8px;
+	}
+	.slideTitle .col{
+		padding: 5px 0px;
+	}
+	.slideTitle .col[col-9] .searchHeading{
+		margin-top: 0;
+		position: initial;
+		padding-top: 10px;
+		color: #003946;
+		font-size: 18px;
+		font-weight: 700;
+		padding-left: 16px;
+		margin-left: 16px;
+		position:relative;
+		z-index: 1;
+	}
+	.searchHeading:before{
+	    content: "";
+		background: #eaab00;
+		width: 36px;
+		height: 36px;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		z-index: -1;
+	}
+	.slideTitle .col[col-3] span{			
+		color: #eaab00;
+		border-bottom: 1px solid #eaab00;
+		position: absolute;
+		bottom: 8px;
+		right: 0px;
+		font-size: 12px;
+	}
+	.slideDate{
+	    padding-left: 25px;
+		font-size: 10px;
+		color: #000;
+		margin-bottom: 16px;
+		position: relative;
+	}
+	.slideDate:before {
+		content: "";
+		background: url(../assets/icon/time.svg) no-repeat 50%;
+		width: 15px;
+		height: 15px;
+		position: absolute;
+		top: -1px;
+		left: 7px;
+	}
+	.slideDate span{
+		margin-left: 5px;
+	}
+}

@@ -1,0 +1,56 @@
+<!--
+  Generated template for the PolicySearchPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header class="custom_header">
+ 	<ion-toolbar class="logo-account">
+	 	<button class="back-btn" ion-button icon-only (tap)="goBack()">
+		 	<ion-icon name="arrow-back"></ion-icon>
+	 	</button>
+		<div class="page-header-title">
+			<img src="./assets/icon/headerLogo.svg"  />
+		</div>
+ 	</ion-toolbar>
+</ion-header>
+
+<ion-content class="lapsePolicy" padding no-bounce>
+    <div class="searchTitle">{{strings.search}}</div>
+    <form [formGroup]="policySearchForm"  (ngSubmit)="policySearchSubmit(policySearchForm)" >
+		<ion-card class="searchData">
+			<ion-card-content>
+				<p class="searchSubTitle">TRÍCH LỤC</p>
+				<ion-list>
+					<ion-item class="inputItem">
+						<ion-input class="input-field" type="text" placeholder="{{strings.claimNo}}" maxlength="10" restrictInput="alphanumeric" formControlName="spajNum"  name="spajNum"></ion-input>
+					</ion-item>
+					<div>
+						<p [hidden]="!spajNum.hasError('pattern')" >{{strings.specialcharAreNotAllowed}}</p>
+					</div>
+
+					<ion-item class="inputItem">
+						<ion-input class="input-field" type="number" placeholder="{{strings.numOfContracts}}" restrictInput="number" maxlength="50" formControlName="policyNum"  name="policyNum"></ion-input>
+					</ion-item>
+					<ion-item class="inputItem">
+						<ion-input class="input-field" type="text" placeholder="{{strings.insuranceBuyer}}" restrictInput="alphanumeric" maxlength="50"  formControlName="holderName" name="holderName"></ion-input>
+					</ion-item>
+					<ion-item class="inputItem">
+						<ion-input class="input-field" type="number" placeholder="{{strings.codeTVTC}}" restrictInput="alphanumeric" formControlName="agentCode"  name="agentCode"></ion-input>
+					</ion-item>
+					<div>
+						<p [hidden]="!agentCode.hasError('pattern')" >This character not allowed </p>
+					</div>
+
+					<ion-item class="inputItem">
+						<ion-input class="input-field" type="text" placeholder="{{strings.nameOfTVTC}}" restrictInput="alphanumeric"  formControlName="agentName"  maxlength="50" name="agentName"></ion-input>
+					</ion-item>
+				</ion-list>
+			</ion-card-content>
+		</ion-card>
+		<button class="button-search"  type="submit" ion-button full>{{strings.submitBtn}}</button>
+    </form>
+	<p class="licence bottom-licence" [ngStyle]="alignBottom">{{strings.licence}}</p>
+</ion-content>
+

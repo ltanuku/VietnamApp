@@ -1,0 +1,95 @@
+<!--
+  Generated template for the MdrtPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header class="custom_header">
+ 	<ion-toolbar class="logo-account">
+	 	<button class="back-btn" ion-button icon-only (tap)="goBack()">
+		 	<ion-icon name="arrow-back"></ion-icon>
+	 	</button>
+		<div class="page-header-title">
+		 	<img src="./assets/icon/headerLogo.svg"  />
+		</div>
+ 	</ion-toolbar>
+</ion-header>
+
+<ion-content padding no-bounce [ngClass]="noScroll ? 'hideScroll' : ''">
+	<div class="mdrtTitle">{{strings.mdrttitle}}</div>
+	<ion-card>
+		<ion-card-content>
+			<div class="SubTitle"><span>{{mdrtResult.contestName}}</span><span>{{mdrtResult.yearData}}</span></div>
+			<div class="mdrtCardTitle">Thời gian {{mdrtResult.startDate}} - {{mdrtResult.endDate}}</div>
+			<div class="mdrtTime">(Hôm nay - {{mdrtResult.activeDate}})</div>
+			<div class="dropDownAnimation">
+					<ion-row class="agentListRow" (tap)="showAgentList()">
+						<div class="drop-downDiv">{{selectedAgentLevel}}</div>
+						<ion-icon item-right [ngClass]="{'show':isAgentList == 'active'}" [name] = "isAgentList == 'active' ? 'ios-arrow-up-outline':'ios-arrow-down-outline'"></ion-icon>
+					</ion-row>
+
+					<ion-list class="agentList" [hidden]="!isAgentList" [ngClass]="{'show':isAgentList == 'active'}">
+						<ul>
+							<ng-template #recursiveList let-agentsList>
+								<li *ngFor="let item of agentsList">
+									<ion-row [ngClass]=" item.agentCode == selectedID ? 'activeAgent' : ''"    (tap)="setAction(item,item.agentCode)">
+										<ion-col col-1><img src="./assets/icon/user.svg" /></ion-col>
+										<div col-11>{{item.agentLevel}} - {{item.agentCode}} - {{item.agentName}}</div>
+									</ion-row>
+									<ul *ngIf="item.agents.length > 0">
+										<ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: item.agents }"></ng-container>
+									</ul>
+								</li>
+							</ng-template>
+							<ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: agentsList }"></ng-container>
+						</ul>
+					</ion-list>
+			</div>
+
+			<div class="progressbarTitle"><span>{{strings.FYP}}</span> {{strings.unitMillion}}</div>
+
+
+			<div class="progressContainer mdrtProgress" [ngStyle]="dataSuccess">
+				<div class="progress">
+					<div #moveProgress class="progressBar" [ngStyle]="{'width': progressWidth + '%'}">{{progressWidth | decimal}}</div>
+					<div class="bar-step bar1" [ngStyle]="{'left': target1 + '%'}">
+						<span class="label-txt" [ngClass]="((target1 < 50) || (target1 == 'Infinity') || (target1 == null)) ? 'left-text' : ''">{{mdrtResult.tartgeT_1}}</span>
+						<span class="label-percent" [ngClass]="((target1 < 50) || (target1 == 'Infinity') || (target1 == null)) ? 'left-text' : ''">{{mdrtResult.targeT_AMOUNT_1 |number : fractionSize}}</span>
+					</div>
+					<div class="bar-step bar2" [ngStyle]="{'left': target2 + '%'}">
+						<span class="label-txt" [ngClass]="((target2 < 50) || (target2 == 'Infinity') || (target2 == null)) ? 'left-text' : ''">{{mdrtResult.targeT_2}}</span>
+						<span class="label-percent" [ngClass]="((target2 < 50) || (target2 == 'Infinity') || (target2 == null)) ? 'left-text' : ''">{{mdrtResult.targeT_AMOUNT_2 |number : fractionSize}}</span>
+					</div>
+					<div class="bar-step bar3" [ngStyle]="{'left': target3 + '%'}">
+						<span class="label-txt" [ngClass]="((target3 < 50) || (target3 == 'Infinity') || (target3 == null)) ? 'left-text' : ''">{{mdrtResult.targeT_3}}</span>
+						<span class="label-percent" [ngClass]="((target3 < 50) || (target3 == 'Infinity') || (target3 == null)) ? 'left-text' : ''">{{mdrtResult.targeT_AMOUNT_3 |number : fractionSize}}</span>
+					</div>
+				</div>
+
+			</div>
+
+			<div class="profits">
+				<div class="profitHeading">{{strings.profitheading}}</div>
+
+				<div class="profitTitle">{{strings.FYPnextlevel}}</div>
+				<p class="profitValue">{{mdrtResult.reQ_MONTH_FYP |number : fractionSize| nodata : serviceCallCompleted }}</p>
+
+				<div class="profitTitle">{{strings.timeRemaining}}</div>
+				<p class="profitValue">{{mdrtResult.remain_MONTH |number : fractionSize| nodata : serviceCallCompleted }} {{strings.month}}</p>
+
+				<div class="profitTitle">{{strings.minimum}}</div>
+				<p class="profitValue">{{mdrtResult.casE_TO |number : fractionSize| nodata : serviceCallCompleted }}/{{strings.month}}</p>
+			</div>
+
+			<div class="note">{{strings.mdrtNote1}}</div>
+			<div class="note">{{strings.mdrtNote2}}</div>
+		</ion-card-content>
+	</ion-card>
+	<p class="licence bottom-licence" [ngStyle]="alignBottom" >{{strings.licence}}</p>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<footer-bar></footer-bar>
+	</ion-toolbar>
+</ion-footer>

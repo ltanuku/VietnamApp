@@ -1,0 +1,44 @@
+<!--
+  Generated template for the SlideDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header class="custom_header">
+ 	<ion-toolbar class="logo-account">
+	 	<button class="back-btn" ion-button icon-only (tap)="goBack()">
+		 	<ion-icon name="arrow-back"></ion-icon>
+	 	</button>
+		<div class="page-header-title">
+		 	<img src="./assets/icon/headerLogo.svg"  />
+		</div>
+ 	</ion-toolbar>
+
+	<ion-toolbar class="bar-subheader">
+		<ion-row class="slideTitle">
+			<ion-col col-9><div class="searchHeading">{{strings.emulationPrgm}}</div></ion-col>
+			<ion-col col-3 (tap)="slideList(slideDetails.category)"><span>{{strings.viewAll}}</span></ion-col>
+		</ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="slideDetails" no-bounce>
+
+	<ion-card *ngIf="slideDetails.articeId != undefined">
+		<img src="{{slideDetails.image | noImage}}" />
+		<ion-card-content>
+			<div class="slideDate"><span>{{slideDetails.publicDT | dateFormat}}</span></div>
+			<p>{{slideDetails.shortDesc}}</p>
+			<div class="note">
+				<p [innerHTML]="slideDetails.content" ></p>
+			</div>
+		</ion-card-content>
+	</ion-card>
+	<p class="licence bottom-licence" [ngStyle]="alignBottom" >{{strings.licence}}</p>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<footer-bar></footer-bar>
+	</ion-toolbar>
+</ion-footer>

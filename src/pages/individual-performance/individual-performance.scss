@@ -1,0 +1,110 @@
+page-individual-performance {
+	.page-title {
+		color: #003946;
+		font-size: 18px;
+		font-weight: 700;
+		padding-top: 10px;
+		padding-left: 16px;
+		margin-left: 16px;
+		margin-top: 18px;
+		margin-bottom: -12px;
+		position: relative;
+		z-index: 1;
+	}
+	.page-title:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 36px;
+		height: 36px;
+		background-color: #eaab00;
+		z-index: -1;
+	}
+	.card{
+		margin: 0;
+		width: 100%;
+		overflow: visible;
+	}
+	.card-content{
+		padding: 28px 16px;
+	}
+	.card .titleInfo .subtitle{
+		color: #003946;
+		font-size: 14px;
+		margin-bottom: 13px;
+	}
+	.card .titleInfo .subtitle span{
+		font-size: 12px;
+	}
+	.card .titleInfo .title {
+		color: #eaab00;
+		font-size: 18px;
+		font-weight: 600;
+		margin-bottom: 13px;
+	}
+	.card .titleInfo .title span{
+		color: #82786f;
+		font-size: 12px;
+		font-weight: 300;
+	}
+	.card .values{
+		color: #181818;
+		font-size: 11px;
+		font-style: italic;
+		text-align: center;
+		margin-bottom: 28px;
+		padding-top: 10px;
+	}
+	.card .values span{
+		color: #eaab00;
+		font-size: 14px;
+		font-style: normal;
+		font-weight: 600;
+	}
+	hr {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+		border: 0;
+		border-top: 1px solid rgba(0,0,0,.1);
+	    background-color: #fff !important;
+	}
+	.salesBox .salesTitle{
+		color: #181818;
+		font-size: 13px;
+		margin-bottom: 13px;
+		font-weight: 600;
+	}
+    .salesBox .rowTitles{
+        border-bottom: 1px solid #e9ecef; 
+		color: #181818;
+		font-size: 12px;
+		font-weight: 600;		
+		text-transform: uppercase;
+    }
+    .salesBox .colTitles{
+		border-right: 1px solid #e9ecef; 
+		color: #181818 !important;
+		font-size: 12px;
+		font-weight: 600;
+    }
+	.salesBox .row .col{
+		text-align: center;
+	}
+	.salesBox .salesData [col-3]{
+	    color: #eaab00;
+		font-size: 12px;
+		font-weight: 600;
+	}
+	.salesBox .ratio {
+		color: #181818;
+		font-size: 13px;
+		font-weight: 600;
+		margin-top: 28px;
+	}
+	.salesBox .ratio .ratioValue{
+	    color: #eaab00;
+		font-size: 18px;
+	}
+	.drop-downDiv{width:90%;}
+}

@@ -1,0 +1,150 @@
+<!--
+  Generated template for the SearchDetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header class="custom_header">
+ 	<ion-toolbar class="logo-account">
+	 	<button class="back-btn" ion-button icon-only (tap)="goBack()">
+		 	<ion-icon name="arrow-back"></ion-icon>
+	 	</button>
+		<div class="page-header-title">
+		 	<img src="./assets/icon/headerLogo.svg"  />
+		</div>
+ 	</ion-toolbar>
+
+	<ion-toolbar class="bar-subheader">
+		<div class="page-title">{{strings.policyStatusTitle}}</div>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content padding no-bounce>
+
+
+	<ion-row>
+		<ion-card class="box box-contract box-contract-light-blue">
+
+			<div *ngIf="!underwritingDetails">
+				<div class="title" *ngIf="!detailList.claimStatus" [ngStyle]="{'background-color': detailList.cardColor }"><span class="hdText">{{strings.hd}} </span>{{cardTitle}}</div>
+
+				<!-- Policy Lapsed Screen -->
+				<ion-card-content *ngIf="detailList.lapsed">
+					<div>{{strings.numOfContracts}} <span> : {{results.policyno | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.mainProduct}} <span> : {{results.product | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.departureDate}} <span> : {{results.settledate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.policyInvalidDate}} <span> : {{results.settledate | dateFormat}}</span></div>
+					<div>{{strings.investor}} <span> : {{results.faceamount | nodata : serviceCallCompleted}}</span></div>
+				</ion-card-content>
+
+				<!-- In premium paying period Screen -->
+				<ion-card-content *ngIf="detailList.inPremiumPeriod">
+
+					<div>{{strings.numOfContracts}} <span> :  {{results.policyno | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.mainProduct}} <span> :  {{results.product | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.departureDate}} <span> :  {{results.settledate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.feedueDate}} <span> :  {{results.settledate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.premiumDue}} <span> :  {{results.preminum | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.investor}} <span> :  {{results.holdername | nodata : serviceCallCompleted}}</span></div>
+				</ion-card-content>
+
+				<!-- Policy cancel in grace Period Screen -->
+				<ion-card-content *ngIf="detailList.cancelGracePeriod">
+					<div>{{strings.numOfContracts}} <span> : {{results.policyno | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.mainProduct}} <span> : {{results.product | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.departureDate}} <span> : {{results.settledate | dateFormat  | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.cancellationDate}} <span> : {{results.settledate | dateFormat  | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.expiryDate}} <span> : {{results.settledate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.insuranceBuyer}} <span> : {{results.holdername | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.investor}} <span> : {{results.faceamount | nodata : serviceCallCompleted}}</span></div>
+				</ion-card-content>
+
+				<!-- Policy in grace Period Screen -->
+				<ion-card-content *ngIf="detailList.inGracePeriod">
+					<div>{{strings.numOfContracts}} <span> :  {{results.policyno | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.mainProduct}} <span> :  {{results.product | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.departureDate}} <span> :  {{results.settledate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.insuranceBuyer}} <span> :  {{results.insuredname | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.investor}} <span> :  {{results.faceamount | nodata : serviceCallCompleted}}</span></div>
+				</ion-card-content>
+
+				<!-- Waiting For Acknowledgement Screen -->
+				<ion-card-content  *ngIf="detailList.waitingForAck">
+					<div>{{strings.numOfContracts}} <span> : {{results.policyno | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.mainProduct}} <span> : {{results.product | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.departureDate}} <span> : {{results.settledate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.insuranceBuyer}} <span> : {{results.holdername | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.requriedExpiryDate}} <span> : {{results.polMaturityDate | dateFormat}}</span></div>
+					<div>{{strings.noOfDaysForDelivery}} <span> : {{results.noOfDaysForDelivery | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.investor}} <span> : {{results.holderPhone | nodata : serviceCallCompleted}}</span></div>
+				</ion-card-content>
+
+				<!-- Claim Status Details -->
+				<ion-card-content *ngIf="detailList.claimStatus">
+					<div>{{strings.numOfContracts}} <span>: {{results.policyno | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.policyOwner}} <span>: {{results.holdername | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.codeTVTC}} <span>: {{results.agentcode | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.nameOfTVTC}} <span>{{results.agentname | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.insuranceBuyer}} <span>: {{results.insuredname | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.product}} <span>: {{results.product | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.faceAmount}} <span>: {{results.faceamount | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.paymentMode}} <span>: {{results.paymentmode | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.premium}} <span>: {{results.preminum | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.paymentType}} <span>: {{results.paymenttype | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.settleDate}} <span>: {{results.settledate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+				</ion-card-content>
+
+				<!-- Pending Issued Screen -->
+				<ion-card-content *ngIf="issuedDetails">
+					<div>{{strings.numOfContracts}} <span>: {{results.policyno | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.mainProduct}} <span>: {{results.product | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.departureDate}} <span>: {{results.settledate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.expiryDate}} <span>: {{results.polMaturityDate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.insuranceBuyer}} <span>: {{results.holdername | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.expiryDateOfRecipt}} <span>: {{results.polAckDate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.noOfDaysForDelivery}} <span>: {{results.totalWaitingAckDays | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.feedueDate}} <span>: {{results.nextPremiumDate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.premiumDue}} <span>: {{results.preminum | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.policyInvalidDate}} <span>: {{results.polLapseDate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.investor}} <span>: {{results.polOwnerPhone | nodata : serviceCallCompleted}}</span></div>
+				</ion-card-content>
+			</div>
+
+			<div *ngIf="underwritingDetails">
+				<div *ngFor="let requirement of results.requirements">
+					<div [ngSwitch]="requirement.requirementType" class="multiTitle">
+						<div class="title"  *ngSwitchCase="'PENDING'" [ngStyle]="{'background-color': config.colorCodes.pendingUnderWritingColor }">{{strings.pending}}</div>
+						<div class="title"  *ngSwitchCase="'SUPPLEMENTARY_INFORMATION'" [ngStyle]="{'background-color': config.colorCodes.supplementaryUnderWritingColor }">{{strings.supplemenatroy_info}}</div>
+						<div class="title"  *ngSwitchCase="'MEDICAL_EXAMINATION'" [ngStyle]="{'background-color': config.colorCodes.medicalExamUnderWritingColor }">{{strings.medical_exam}}</div>
+						<div class="title"  *ngSwitchCase="'ACCEPTANCE_LETTER'" [ngStyle]="{'background-color': config.colorCodes.acceptanceUnderWritingColor }">{{strings.acceptance_letter}}</div>
+            <br/>
+          </div>
+				</div>
+				<ion-card-content>
+					<div>{{strings.numOfContracts}} <span>: {{results.policyno | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.mainProduct}} <span>: {{results.product | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.dateReceived}} <span>: {{results.ackDate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.insuranceBuyer}} <span>: {{results.holdername | nodata : serviceCallCompleted}}</span></div>
+					<div>{{strings.underwritingDetail1}} <span>: {{results.insuredname | nodata : serviceCallCompleted}}</span></div>
+					<div *ngFor="let requirement of results.requirements">
+						<div>{{strings.underwritingDetail2}} <span>: {{requirement.requirmentDetail | nodata : serviceCallCompleted}}</span></div>
+						<div>{{strings.underwritingDetail3}} <span>: {{requirement.requestDate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+						<div>{{strings.underwritingDetail4}} <span>: {{requirement.expiredDate | dateFormat | nodata : serviceCallCompleted}}</span></div>
+					</div>
+					<!--<div>{{strings.underwritingDetail9}} <span>: {{results.requirements.remainDate | nodata : serviceCallCompleted}}</span></div>-->
+					<div>{{strings.investor}} <span>: {{results.holderPhone | nodata : serviceCallCompleted}}</span></div>
+				</ion-card-content>
+			</div>
+		</ion-card>
+	</ion-row>
+
+
+	<p class="licence bottom-licence" [ngStyle]="alignBottom" >{{strings.licence}}</p>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<footer-bar></footer-bar>
+	</ion-toolbar>
+</ion-footer>

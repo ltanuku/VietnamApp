@@ -1,0 +1,74 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+	<ion-navbar>
+	</ion-navbar>
+</ion-header>
+
+<ion-content padding no-bounce [ngClass]="noScroll ? 'hideScroll' : ''">
+	<div ion-fixed>
+		<div class="profilepic"></div>
+		<ion-row class="profileHeading">
+			<ion-col col-9>
+				<div class="profileTitle">
+					<p>{{strings.account}}</p>
+					<span>{{strings.mine}}</span>
+				</div>
+			</ion-col>
+		</ion-row>
+	</div>
+	<ion-list>
+		<div class="listTitles">{{strings.firstName }}</div>
+		<p class="profileName">{{profileData.agentName | nodata : serviceCallCompleted}}</p>
+		<div class="listTitles">{{strings.office}}</div>
+		<p class="office">{{profileData.agentOffice | nodata : serviceCallCompleted}}</p>
+		<div class="listTitles">{{strings.position}}</div>
+		<p class="profileDetails">{{profileData.position | nodata : serviceCallCompleted}}</p>
+		<ion-row>
+			<ion-col>
+				<div class="listTitles">{{strings.joinDate}}</div>
+				<p class="profileDetails">{{profileData.joinDate | dateFormat | nodata : serviceCallCompleted}}</p>
+			</ion-col>
+			<ion-col>
+				<div class="listTitles">{{strings.certificateNo}}</div>
+				<p class="profileDetails">{{profileData.certificateNumber | nodata : serviceCallCompleted}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<div class="listTitles">{{strings.expiryDate}}</div>
+				<p class="profileDetails">{{profileData.licenceExpDate | date:'short' | dateFormat | nodata : serviceCallCompleted}}</p>
+			</ion-col>
+			<ion-col>
+				<div class="listTitles">{{strings.directManagement}}</div>
+				<p class="profileDetails">{{profileData.directManagerName | nodata : serviceCallCompleted}}</p>
+			</ion-col>
+		</ion-row>
+		<ion-row>
+			<ion-col>
+				<div class="listTitles">{{strings.birthday}}</div>
+				<p class="profileDetails">{{profileData.birthDay | date:'short' | dateFormat | nodata : serviceCallCompleted}}</p>
+			</ion-col>
+			<ion-col>
+				<div class="listTitles">{{strings.currentOccupation }}</div>
+				<p class="profileDetails">{{profileData.currentOccupation | nodata : serviceCallCompleted}}</p>
+			</ion-col>
+		</ion-row>
+		<div class="listTitles">{{strings.education}}</div>
+		<p class="profileDetails">{{profileData.educationLevel | nodata : serviceCallCompleted}}</p>
+		<div class="listTitles">{{strings.email}}</div>
+		<p class="profileDetails">{{profileData.emailAddress1 | nodata : serviceCallCompleted}}</p>
+		<div class="listTitles">{{strings.phone}}</div>
+		<p class="profileDetails">{{profileData.mobilePhone | nodata : serviceCallCompleted}}</p>
+	</ion-list>
+	<p class="licence bottom-licence" [ngStyle]="alignBottom">{{strings.licence}}</p>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<footer-bar></footer-bar>
+	</ion-toolbar>
+</ion-footer>

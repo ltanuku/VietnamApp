@@ -1,0 +1,73 @@
+page-policy-search {
+	.searchTitle{
+		color: #003946;
+		font-size: 18px;
+		font-weight: 700;
+		padding-left: 16px;
+		padding-top: 10px;
+		margin-top: 16px;
+		margin-left: 16px;
+		z-index: 1;
+		position: relative;
+		margin-bottom: -10px;
+		text-transform: uppercase;
+	}
+	.searchTitle:before{
+		content: "";
+		background: #eaab00;
+		width: 31px;
+		height: 31px;
+		position: absolute;
+		top: 0px;
+		left: 0;
+		z-index: -1;
+	}
+	.searchData{
+		box-shadow: none;
+		margin: 0px;
+		width: 100%;
+	}
+	.searchData .searchSubTitle{
+		font-size: 14px;
+		color: #003946;
+		margin: 15px 0;
+	}
+
+	.searchData .item{
+		height: 40px;
+		color: #505050;
+		background: #ececec;
+		border: 1px solid hsla(28,7%,47%,.5) !important;
+		font-size: 13px;
+		border-radius: 50px;
+		width: 100%;
+		margin: 20px 0;
+	}
+	.button-search{
+		background: #003946;
+		width: 100%;
+		color: #fff;
+		font-size: 13px;
+		font-weight: 700;
+		margin-top: 25px;
+		padding: 25px;
+		border: none;
+		border-radius: 50px;
+	    margin-bottom: 0px;
+	}
+	.button-search.activated{
+		background-color: #003946;
+	}
+	.searchFooter:before{
+		background-image: none;
+	}
+
+	/* To over come extra space when input field is focused */
+	.content-md .scroll-content{
+		padding-bottom: 0px !important;
+	}
+	.ios .scroll-content{
+		padding: 250px !important;
+	}
+	.button:hover:not(.disable-hover){background: #003946;}
+}

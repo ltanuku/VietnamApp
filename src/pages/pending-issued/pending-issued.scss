@@ -1,0 +1,137 @@
+page-pending-issued {
+	.card .row:nth-child(odd){
+		background-color: #eaeaea;
+	}
+	.card h3{
+		margin: 10px !important;
+		font-size: 2.2rem;
+	}
+	.page-title {
+      color: #003946;
+      font-size: 18px;
+      font-family: Montserrat,sans-serif;
+      font-weight: 700;
+      padding-top: .625rem;
+	  padding-left: 16px;
+      margin-top: 15px;
+	  margin-left: 15px;
+	  margin-bottom: -10px;
+      position: relative;
+  	}
+	.scroll-content{
+		padding-top: 0px !important;
+	}
+  .page-title:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+		width: 31px;
+    height: 100%;
+    background-color: #eaab00;
+    z-index: -1;
+  }
+  .page-subtitle {
+      color: #003946;
+      font-size: 16px;
+      margin: 20px 0 10px 12px;
+	}
+	.card-content{
+		padding: 25px 16px 16px;
+		font-size: 22px;
+		line-height: 1.5;
+	}
+	.box-contract .title {
+		color: #fff;
+		font-size: 11px;
+		font-weight: 300;
+		position: absolute;
+		letter-spacing: 1px;
+		padding: 5px 6px;;
+		border-radius: 1px;
+		margin: 0;
+	}
+	.box-contract div span {
+		font-weight: 600;
+	}
+	.box-contract div {
+	    color: #181818;
+		font-size: 13px;
+		font-weight: 300;
+		margin-top: 5px;
+	}
+	.card{margin:0 0 16px;width:100%;}
+
+	.leftradio ion-label{
+		float: left; margin: 0px 0px 0px 12px;
+	}
+	.leftradio ion-radio{
+		float: left;
+	}
+
+	.rightradio  .right_label{
+		 margin: 0px 0px 0px 10px;  
+		 white-space: normal;
+	}
+	.rightradio ion-icon{
+		font-size: 1.2em;
+		width: 24px;
+		height: 24px;
+		display: block;
+		padding: 10px 1px 0px 3px;
+
+ }
+
+ .popup_card {
+	position: absolute; 
+	z-index: 2;
+ }
+ .popup_card ion-card-content{
+	 font-size: 13px;
+	 padding: 15px 0px 10px 15px !important
+ }
+
+ .square{
+	position: relative;
+	list-style: none;
+	margin: -10px 0px 0px 0px;
+	padding-left: 20px;
+
+}
+.square:before{
+	width: 15px;
+	height: 15px;
+	content: '';
+	position: absolute;
+	left: 0px;
+	top: 12px;
+	display: block;
+}
+
+
+.square:nth-child(1)::before{
+		background: #5482ab;
+	
+}
+.square:nth-child(2)::before{
+	background: #d0651e;
+
+}
+.square:nth-child(3):before{
+	background: #82786f ;
+	
+}
+.square:nth-child(4):before{
+	background: #658237;
+	
+}
+.square:nth-child(5):before{
+	background: #003946;
+	
+}
+.activeOption{
+	//background-color: #eaab00
+	
+}
+
+}

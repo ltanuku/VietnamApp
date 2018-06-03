@@ -1,0 +1,177 @@
+page-mdrt {
+	.mdrtTitle{
+	  
+		
+		color: #003946;
+		font-size: 18px;
+		font-weight: 700;
+		padding-left: 16px;
+		padding-top: 10px;
+		margin-top: 16px;
+		margin-left: 16px;
+		z-index: 1;
+		position: relative;
+		margin-bottom: -10px;
+		text-transform: uppercase;
+	}
+	.mdrtTitle:before{	
+		
+		content: "";
+		background: #eaab00;
+		width: 31px;
+		height: 31px;
+		position: absolute;
+		top: 0px;
+		left: 0;
+		z-index: -1;
+	}
+	.SubTitle{
+		font-size: 14px;
+		color: #003946;
+		margin: 15px 0;
+	}
+	.card{
+		margin: 0;
+		width: 100%;
+		overflow: visible;
+	}
+	.card .card-content{
+		padding: 10px;
+	}
+	.mdrtCardTitle{
+		font-size: 18px;
+		font-weight: 600;
+		color: #eaab00;
+		margin-bottom: 3px;
+	}
+	.mdrtTime{
+		font-size: 12px;
+		font-weight: 300;
+		color: #82786f;
+		margin-bottom: 13px;
+	}	
+	.progressbarTitle{
+		font-size: 12px;
+		font-weight: 300;
+		color: #82786f;
+		margin-bottom: 45px;
+		padding-top: 20px;
+	}
+	.progressbarTitle span{
+	    font-size: 20px;
+		font-weight: 600;
+		color: #181818;
+		margin-right: 6px;
+	}
+	
+	/** Progress Bar Styles */
+	.progressContainer{
+		margin-bottom: 50px;
+	}
+    .progress{
+		height: 30px;
+		background: silver;
+		border-radius: 0;
+		top:45%;
+		position:absolute;
+		width:100%;
+	}
+	.progress .progressBar{
+	    background: #eaab00;
+		height: 100%;
+		text-align: right;
+		padding-right: 10px;
+		padding-top: 5px;
+		font-size: 14px;
+	    color: #fff;
+		width:0px; 
+		-webkit-transition: width 0.5s, height 0.5s;
+		-moz-transition: width 0.5s, height 0.5s;
+		transition: width 0.5s, height 0.5s;
+		will-change: width;	
+	    position: relative;
+		max-width:100%;
+		z-index: 1;
+	}
+    .bar-step {
+        font-size:12px;
+		border-right: 1px solid #d0651e;
+   		position: absolute;
+   		z-index: 2;
+   		height: 35px;
+    	top: 0;
+    	bottom: 0;
+    	margin: auto;
+    }    
+    .label-txt {
+		position: absolute;
+		top: -20px;
+		right: -25px;
+		right: -15px;
+		display: block;
+		margin: 0 auto;
+		min-width: 80px;
+		text-align: right;
+        color:#d0651e;        
+    }    
+    .label-percent {
+		position: absolute;
+		bottom: -20px;
+		right: -15px;
+		display: block;
+		margin: 0 auto;
+		min-width: 50px;
+		text-align: right;
+		color: #d0651e;
+    }	
+
+	.profits .profitHeading{
+	    font-size: 14px;
+		font-weight: 600;
+		color: #181818;
+		margin-bottom: 14px;
+	}
+	.profits .profitTitle{
+		font-size: 12px;
+		font-weight: 300;
+		color: #181818;
+		margin-bottom: 14px;
+	}
+	.profits .profitValue{
+		font-size: 24px !important;
+		font-weight: 600;
+		color: #eaab00 !important;
+		margin-bottom: 12px;
+		text-align: right;
+	    text-transform: lowercase;
+	}
+	.ratio {
+		color: #181818;
+		font-size: 13px;
+		font-weight: 600;
+		margin-top: 28px;
+	}
+	.ratio .ratioValue{
+	    color: #eaab00;
+		font-size: 18px;
+	}
+	.bar1 {height: 35px;}
+	.bar2 {height: 75px;}
+	.bar3 {height: 115px;}
+	.mdrtProgress{
+		height: 110px;
+		position:relative;
+	} 
+	.drop-downDiv{width:90%;}
+	.left-text{
+		text-align: left !important;
+		left: inherit;
+		right: inherit;
+	}
+	.note{
+		color: #82786f;
+		font-size: 11px;
+		font-weight: 300;
+		margin-bottom: 5px;
+	}
+}

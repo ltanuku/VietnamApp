@@ -1,0 +1,92 @@
+<!--
+  Generated template for the CalendarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-header class="custom_header">
+ 	<ion-toolbar class="logo-account">
+	 	<button class="back-btn" ion-button icon-only (tap)="goBack()">
+		 	<ion-icon name="arrow-back"></ion-icon>
+	 	</button>
+		<div class="page-header-title">
+		 	<img src="./assets/icon/headerLogo.svg"  />
+		</div>
+ 	</ion-toolbar>
+</ion-header>
+
+<ion-content padding class="calendar" no-bounce [ngClass]="noScroll ? 'hideScroll' : ''">
+
+	<ng-template #customCellTemplate let-day="day" let-events="customEvent"  let-locale="locale">
+		<div class="cal-cell-top" tappable (click)="dayEventClick(day.date)" style="z-index : 999;" [ngClass]="selectedDate == day.date ? 'eventSelected' : ''">
+		<span class="" #eventCount *ngIf="hasData" >{{getEventsCountForDate(day.date, eventCount)}} </span>
+		<span class="cal-day-number">{{ day.date | calendarDate:'monthViewDayNumber':locale }}</span>
+		</div>
+	</ng-template>
+
+	<div class="calContainer" #calendarDiv>
+		<div class="calendarHeading">{{strings.calendar}}</div>
+		<div class="row">
+			<div col-6 class="calTitle"><span col-5></span></div>
+			<div col-6 class="monthYear">
+				<div class="row">
+					<!-- <ion-datetime col-8 (ionChange)="changeMonth($event)" pickerFormat="MMMM" [(ngModel)]="monthModified">
+					</ion-datetime>
+					<ion-datetime col-4 (ngModelChange)="changeYear($event)" [min]="minYear" [max]="maxYear"  pickerFormat="YYYY" [(ngModel)]="yearModified">
+					</ion-datetime> -->
+					<select col-7 [(ngModel)]="monthSelected" (change)="changeMonth(monthSelected)" #currentMonth>
+						<optgroup>
+							<option *ngFor="let month of months" [ngValue]="month">{{month}}</option>
+						</optgroup>
+					</select>
+					<select col-4 [(ngModel)]="yearSelected" (change)="changeYear(yearSelected)" #currentYear>
+						<optgroup>
+							<option *ngFor="let year of years" [ngValue]="year">{{year}}</option>
+						</optgroup>
+					</select>		
+				</div>
+				<div class="row">
+					<div col-7>
+						<h3>{{ viewDate | calendarDate:'monthViewTitle':'vi' }}<ion-icon name="ios-arrow-down"></ion-icon></h3>						
+					</div>
+					<div col-4>
+						<h3>{{ viewDate | calendarDate:'yearViewTitle':'en' }}<ion-icon name="ios-arrow-down"></ion-icon></h3>						
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div [ngSwitch]="view">
+			<mwl-calendar-month-view 
+				*ngSwitchCase="'month'"
+				[viewDate]="viewDate"
+				[cellTemplate]="customCellTemplate">
+				<!--[activeDayIsOpen]="activeDayIsOpen"
+				(dayClicked)="dayClicked($event.day)">-->
+			</mwl-calendar-month-view>
+		</div>
+	</div>
+
+
+	<ion-spinner class="calEventsSpinner" [hidden]="!fetchingEvents" name="ios"></ion-spinner>
+
+	<ion-scroll [hidden]="fetchingEvents" #eventContent  scrollbar-y="true" scrollY="true" #eventsDiv [ngStyle]="{'height': eventsHeight}">
+		<ion-card *ngFor="let event of eventsDetail">
+			<ion-card-content class="row">
+				<ion-icon col-2 [ngClass]="event.activityType == 'BIRTHDAY' ? 'birthday' : 'policyAnniversy'" ></ion-icon>
+				<div col-10 class="cal-event-title">
+					<p class="eventName">{{event.activityName}}</p>
+					<p class="eventDiscription">#{{event.activityDescription}}</p>
+				</div>
+			</ion-card-content>
+		</ion-card>
+	</ion-scroll>
+	<p class="licence bottom-licence" [ngStyle]="alignBottom" >{{strings.licence}}</p>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<footer-bar></footer-bar>
+	</ion-toolbar>
+</ion-footer>

@@ -1,0 +1,41 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-content padding class="login" no-bounce>
+	<div class="logoImg">
+		<img src="./assets/icon/logo.svg" />
+	</div>
+	<form  [formGroup]="loginForm"  (ngSubmit)="login(loginForm)" >
+		<ion-item #usernameItem>
+			<ion-label><img src="./assets/icon/username.svg" /></ion-label>
+			<ion-input   type="text" placeholder="{{strings.username}}" restrictInput="alphanumeric"  maxlength="15"  formControlName="loginID" name="loginID"></ion-input>
+		</ion-item>
+
+		<div  *ngIf="loginID.invalid && !isUserFoucs">
+
+		<p [hidden]="!loginID.hasError('minlength') " >{{strings.minLengthShould}}</p>
+			<p [hidden]="!loginID.hasError('pattern')" >{{strings.specialcharAreNotAllowed}}</p>
+		</div>
+
+		<ion-item #passwordItem>
+			<ion-label><img src="./assets/icon/password.svg" /></ion-label>
+			<ion-input clearOnEdit="false" type="password" placeholder="{{strings.password}}"  formControlName="passwd" name="passwd" required></ion-input>
+		</ion-item>
+
+		<div  *ngIf="passwd.invalid && !isPwdFocus">
+
+		<p [hidden]="!passwd.hasError('minlength')" >{{strings.minLengthShould8}}</p>
+
+		</div>
+		<button class="loginBtn" [disabled]="loginForm.invalid" ion-button block type="submit">{{strings.login}}</button>
+	</form>
+	<!-- <div class="pass-forget">
+		<a href="javascript:void(0)" >{{strings.passwordlink}}</a>
+   	</div> -->
+</ion-content>
+<ion-footer class="searchFooter" *ngIf="isKeyboardHidden">	
+	<p class="licence">{{strings.licence}}</p>
+</ion-footer>

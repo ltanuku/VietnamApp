@@ -1,0 +1,206 @@
+page-sun-elite {
+	.header:after{
+		display: none;
+	}
+	.bar-subheader .toolbar-background{
+		background-color: #f5f5f5;
+	    border: 0px;
+	}
+    .sun-elite .sunEliteHeading{
+        color: #003946;
+        font-size: 18px;
+        font-weight: 700;
+        padding-top: 10px;
+        padding-left: 16px;
+        margin-left: 16px;
+        position: relative;
+        text-transform: uppercase;
+		z-index: 1;
+    }
+    .sun-elite .sunEliteHeading:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 36px;
+        height: 36px;
+        background-color: #eaab00;
+        z-index: -1;
+    }
+    .primary-heading{
+        font-size: 17px;
+		font-weight: 600;
+		color: #eaab00;
+		margin-bottom: 3px;
+    }
+    .secondry-heading{
+        width: 100%;
+        font-size: 10px;
+        color: darkgray;
+    }
+    .text-color{
+        color: #eaab00;
+    }
+    .text-bold{
+        font-weight: bold;
+    }
+    .div-margin{
+        margin-top: 5px;
+    }
+    .small-text-size{
+        color: darkgray;
+        font-size: 12px;
+    }
+    .large-text-size{
+        font-size: 18px;
+    }
+	.progressContainer{
+		margin-bottom: 50px;
+	}
+    .progress{
+		height: 30px;
+		background: silver;
+		border-radius: 0;
+		position:absolute;
+		width:100%;
+		top:45%;
+	}
+	.progress .progressBar{
+	    background: #eaab00;
+		height: 100%;
+		text-align: right;
+		padding-right: 10px;
+		padding-top: 5px;
+		font-size: 14px;
+	    color: #fff;
+		width:0px; 
+		-webkit-transition: width 0.5s, height 0.5s;
+		-moz-transition: width 0.5s, height 0.5s;
+		transition: width 0.5s, height 0.5s;
+		will-change: width;	
+	    position: relative;
+		max-width:100%;
+		z-index: 1;	
+	}
+    .bar-step {
+        font-size:12px;
+		border-right: 1px solid #d0651e;
+   		position: absolute;
+   		z-index: 2;
+   		height: 35px;
+    	top: 0;
+    	bottom: 0;
+    	margin: auto;
+    }    
+    .label-txt {
+		position: absolute;
+		top: -20px;
+		right: -25px;
+		right: -15px;
+		display: block;
+		margin: 0 auto;
+		min-width: 80px;
+		text-align: right;
+        color:#d0651e;        
+    }    
+    .label-percent {
+		position: absolute;
+		bottom: -20px;
+		right: -15px;
+		display: block;
+		margin: 0 auto;
+		min-width: 50px;
+		text-align: right;
+		color: #d0651e;
+    }	
+    .page-title {
+        color: #003946;
+		font-size: 18px;
+		font-weight: 700;
+		padding-top: 10px;
+		padding-left: 16px;
+		margin-left: 16px;
+		margin-top: 18px;
+		margin-bottom: 10px;
+		position: relative;
+		display: inline-block;
+    }
+    .page-title:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+		width: 36px;
+        height: 36px;
+        background-color: #eaab00;
+        z-index: -1;
+    }
+	.page-subtitle {
+        color: #003946;
+		font-size: 16px;
+		margin-left: 16px;
+		margin-bottom: 25px;
+		display: inline-block;
+	}
+	.statusTabs .tabbar{
+		background: transparent;
+		padding: 0 25px;
+		border: 0px !important;
+	}
+	.statusTabs .tabbar:after{
+		background-image: none !important;
+	}
+	.statusTabs .tab-button{
+		color:silver;
+	    font-size: 13px;
+		font-weight: 600;
+	}
+	.statusTabs .tab-button[aria-selected=true]{
+		color:#181818;
+	}
+	.statusTabs .tab-button-text{
+	    padding: 2px 7px;
+	}
+	.statusTabs .tab-button[aria-selected=true] .tab-button-text:after{
+	    content: "";
+		height: 7px;
+		background: #eaab00;
+		width: 100%;
+		position: absolute;
+		bottom: 1px;
+		left: 0;
+		top: 10px;
+		z-index: -1;
+	}
+	.statusTabs.tabs-ios .tab-button[aria-selected=true] .tab-button-text:after{
+		top: 22px;
+	}
+	.primary-div{margin-bottom:3px;}
+	.card{margin:0px; width: 100%;}
+	.secondary-div  {
+		font-size: 12px;
+		font-weight: 300;
+		color: #82786f;
+		margin-bottom: 13px;
+	}
+	
+	.div-margin{margin-bottom:14px;}
+	.title-margin{padding-top:20px; margin-bottom: 45px;}
+	.last-margin{margin-bottom:0px;margin-top:15px;}
+	.medium-text-size{font-weight:bold;font-size:13px;}
+	.bar4{height: 155px;}
+	.bar3{height: 115px;}
+	.bar2{height: 75px;}
+	.bar1{height: 35px;}
+	.sunElite{position:relative;height:143px;}
+
+	[text-right] h2{
+		font-size: 24px;
+	}	
+	.drop-downDiv{width:90%;}
+	.left-text{
+		text-align: left !important;
+		left: inherit;
+		right: inherit;
+	}
+}

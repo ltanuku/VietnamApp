@@ -1,0 +1,194 @@
+page-home{
+
+	.header .toolbar-background{
+		background-color: #eaab00;
+	}
+	.header img{
+		height: 35px;
+	    margin-right: 40px !important;
+	}
+	.home ion-slides{
+		height: auto;
+	}
+	.home .bannerImages{
+		padding: 10px;
+		box-shadow: none;
+		margin: 15px;
+		width: auto;
+	}
+	.home .bannerImages img{
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+		width: 100%;
+	}
+	.home ion-slides .swiper-container-horizontal > .swiper-pagination-bullets{
+		bottom: -12px;
+	}
+	.home ion-slides .swiper-container{
+		overflow: visible;
+	}
+	.home .grid .card{
+		margin: 5px;
+		box-shadow: 0 2px 10px 0 rgba(0,0,0,.2);
+	}
+	.home .card-content {
+		padding-bottom: 10px;
+	}
+	.home .card-content .row{
+		border-bottom: 1px solid #e1e1e1;
+		padding: 5px 0;
+	}
+	.home .card-content .row:last-child{
+		border-bottom: 0px;
+	}
+	.home .card-content .row-title .col{
+		color: #eaaa01;
+	}
+	.home .card-content .row-title .col:first-child{
+		color: currentColor;
+	}
+	.home .note{
+		padding-left: 5px;
+		padding-bottom: 13px;
+		margin-top: 20px;
+	}
+	.home .note p{
+		color: #82786f;
+		font-size: 12px;
+		font-weight: 300;
+		margin-bottom: .5rem;
+		margin-left: .8rem;
+	}
+	.home h3{
+		margin-left: 20px;
+	}
+	.home .dataHeading{
+		color: #003946;
+		font-size: 18px;
+		font-weight: 700;
+		padding-top: 10px;
+		padding-left: 16px;
+		margin-left: 16px;
+		margin-top: 34px;
+		margin-bottom: 22px;
+		position: relative;
+		z-index: 1;
+	}
+	.home .dataHeading.summaryTitle{
+		margin-bottom: -2.2rem;
+		z-index: 100;
+	}
+	.home .dataHeading:before{
+	    content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 36px;
+		height: 36px;
+		background-color: #eaab00;
+		z-index: -1;
+	}
+	.home .card.summary .card-content .row .col div {
+		color: #003946;
+		font-size: 15px;
+		font-weight: 600;
+	}
+	.home .card.summary .card-content:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		margin: 0 10px;
+		width: 120px;
+		height: 10px;
+		background-color: #003946;
+	}
+	.home .emptyCard{
+		background-color: transparent;
+		box-shadow: none;
+	}
+	.home .card.col img{
+		width: auto;
+		margin-bottom: 12px;
+	}
+	.home .card.col div{
+		color: #eaab00;
+		display: flex;
+		align-items: flex-end;
+		text-align: right;
+		float: right;
+		height: 40px;
+		font-size: 15px;
+		font-weight: 700;
+	}
+	@media screen and (min-width: 768px){
+		.home .card.col div{
+			font-size: 20px;
+		}
+	}
+	.home .card.summary .col-titles{
+		color: #181818;
+		font-size: 12px;
+		text-align: center;
+	}
+	.home .card.summary .row-title .col{
+		font-weight: 600;
+		text-align: center;
+	}
+	.home .card.summary .row-title .col:first-child{
+		color: #181818;
+		font-size: 12px;
+		text-align: center;
+		font-style: italic;
+		font-weight: 400;
+	}
+	.header .toggle-menu img{
+		height: 25px;
+		margin-right: 0 !important;
+		margin-left: 5px;
+	}
+	.header .toolbar-content{
+		text-align: center;
+	}
+	.swiper-pagination-bullet-active{
+		background-color: #eaab00;
+	}
+	
+	@media only screen and (min-device-width:320px) and (max-device-width:351px) and (orientation: portrait){
+		.banner-container{
+			max-height:150px;
+			overflow: hidden;
+		}	
+	}
+
+	@media only screen and (min-device-width:351px) and (max-device-width:400px) and (orientation: portrait){
+		.banner-container{
+			max-height:240px;
+			overflow: hidden;
+		}	
+	}
+	@media only screen and (min-device-width:401px) and (max-device-width:500px) and (orientation: portrait){
+		.banner-container{
+			max-height:260px;
+			overflow: hidden;
+		}	
+	}
+	@media only screen and (min-device-width:501px) and (max-device-width:700px)  and (orientation: portrait){
+		.banner-container{
+			max-height:320px;
+			overflow: hidden;
+		}	
+	}
+	@media only screen and (min-device-width:701px) and (max-device-width:770px) and (orientation: portrait){
+		.banner-container{
+			max-height:350px;
+			overflow: hidden;
+		}	
+	}
+	
+	@media only screen and (min-device-width:771px){
+		.banner-container{
+			max-height:400px;
+			overflow: hidden;
+		}	
+	}
+
+}
